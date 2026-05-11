@@ -1,0 +1,54 @@
+{
+  "geocode": {
+    "36.4949,-121.2049": "FQVW+X2 Pinnacles, CA, USA",
+    "36.5029,-121.2002": "GQ3X+5W Pinnacles, CA, USA",
+    "35.5889,-120.7187": "3000 Live Oak Rd, Paso Robles, CA 93446, USA",
+    "35.3035,-120.6935": "8834+VQ, San Luis Obispo, CA 93405, USA",
+    "35.3059,-120.6926": "8834+VQ, San Luis Obispo, CA 93405, USA",
+    "35.3452,-120.8433": "10 State Park Rd, Morro Bay, CA 93442, USA",
+    "35.3452,-120.8438": "10 State Park Rd, Morro Bay, CA 93442, USA",
+    "35.2687,-120.8939": "7494+FC Baywood-Los Osos, CA, USA",
+    "35.2691,-120.8947": "Bluff Trail, Los Osos, CA 93402, USA",
+    "35.2727,-120.8951": "74F3+3W Baywood-Los Osos, CA, USA",
+    "35.2732,-120.8946": "Bluff Trail, Los Osos, CA 93402, USA",
+    "35.2745,-120.8885": "3549 Pecho Valley Rd, Los Osos, CA 93402, USA",
+    "35.2733,-120.8893": "74F6+87 Baywood-Los Osos, CA, USA",
+    "35.2733,-120.8894": "74F6+87 Baywood-Los Osos, CA, USA",
+    "35.1521,-120.6599": "2651 Price St, Pismo Beach, CA 93449, USA",
+    "35.168,-120.7533": "3993 Avila Beach Dr, San Luis Obispo, CA 93405, USA",
+    "35.1529,-120.6615": "Pismo Beach, CA, USA",
+    "35.1535,-120.6633": "Dinosaur Caves Park, 2701 Price St, Pismo Beach, CA 93449, USA"
+  },
+  "journal": {
+    "2026-04-26": {
+      "hash": "b5a0a6cedb708daa2ae413bebe7214d4",
+      "text": "Spent the afternoon hiking through the rocky corridors and open ridgelines of Pinnacles National Park under a heavy overcast sky, moving between narrow boulder passages and elevated viewpoints of the volcanic landscape.\n\n**Highlights:**\n\n- [Pinnacles National Park](https://en.wikipedia.org/wiki/Pinnacles_National_Park) \u2014 established as a national monument in 1908 and redesignated a national park in 2013; formed from the eroded remnants of an ancient volcano that migrated ~200 miles along the San Andreas Fault and is known for its volcanic breccia spires, talus caves, and California condor habitat."
+    },
+    "2026-04-27": {
+      "hash": "2e1201f0bd4a657360e4b6f834408e07",
+      "text": "Started the day among the vineyards of Paso Robles wine country before driving south to hike the open space hills above San Luis Obispo, where the views stretched across the valley and a garter snake crossed the trail at midday.\n\n**Highlights:**\n\n- [Paso Robles AVA](https://en.wikipedia.org/wiki/Paso_Robles_AVA) \u2014 designated American Viticultural Area established in 1983, known for Zinfandel and Rh\u00f4ne-style varietals across over 40,000 planted acres\n- [San Luis Obispo](https://en.wikipedia.org/wiki/San_Luis_Obispo,_California) \u2014 Central Coast city founded 1772 around Mission San Luis Obispo de Tolosa; open space trails ring the city's volcanic morros\n- [Santa Lucia Range](https://en.wikipedia.org/wiki/Santa_Lucia_Range) \u2014 coastal mountain range running roughly 105 miles through San Luis Obispo and Monterey counties, visible as backdrop from city trails"
+    },
+    "2026-04-28": {
+      "hash": "a907eefdb66e7d8d48d3a53e8f8c6519",
+      "text": "Spent the morning kayaking and birding around Morro Bay before driving south to explore the bluffs and beaches of Monta\u00f1a de Oro State Park under cloudless midday skies.\n\n**Highlights:**\n\n- [Morro Rock](https://en.wikipedia.org/wiki/Morro_Rock) \u2014 A 581-foot volcanic plug estimated at 23 million years old; a California Historical Landmark and protected peregrine falcon habitat since 1968.\n- [Morro Bay](https://en.wikipedia.org/wiki/Morro_Bay,_California) \u2014 A sheltered estuary on California's Central Coast, known for its productive bird and marine life.\n- [Monta\u00f1a de Oro State Park](https://en.wikipedia.org/wiki/Monta%C3%B1a_de_Oro_State_Park) \u2014 A 8,000-acre park in San Luis Obispo County established in 1965, featuring exposed Monterey Formation shale cliffs, tide pools, and the Bluff Trail."
+    },
+    "2026-04-29": {
+      "hash": "a8735aec69729d803087cdbd1f5b7719",
+      "text": "Started the morning spotting wildlife in Pismo Beach before cycling out to Avila Beach's harbor pier at midday, then returned along the coast to explore sea arches and tide pools through the afternoon.\n\n**Highlights:**\n\n- [Avila Beach, California](https://en.wikipedia.org/wiki/Avila_Beach,_California) \u2014 small harbor village in San Luis Obispo County, sheltered by Point San Luis and known for its calm anchorage and fishing boats\n- [Pismo Beach](https://en.wikipedia.org/wiki/Pismo_Beach,_California) \u2014 Central California city famous for its clam-digging heritage, rocky tidepools, and dramatic sandstone sea arches\n- [Dinosaur Caves Park](https://en.wikipedia.org/wiki/Dinosaur_Caves_Park) \u2014 11-acre coastal bluff park in Shell Beach offering panoramic Pacific views and tidepool access"
+    }
+  },
+  "collage": {
+    "2026-04-26": {
+      "hash": "11002837955c2e206dfb147355691e4a"
+    },
+    "2026-04-27": {
+      "hash": "ecf420525367efd58f8b515cb39810c8"
+    },
+    "2026-04-28": {
+      "hash": "1e6e7d2d2ce12bd6d55f1f6ca7a13f7d"
+    },
+    "2026-04-29": {
+      "hash": "b2aae2383160b707685482729b5ac1e0"
+    }
+  }
+}

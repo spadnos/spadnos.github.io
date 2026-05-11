@@ -1,0 +1,33 @@
+{
+  "geocode": {
+    "38.6774,-120.0697": "1501 Kirkwood Meadows Dr, Kirkwood, CA 95646, USA",
+    "38.6989,-120.0686": "1501 Kirkwood Meadows Dr, Kirkwood, CA 95646, USA",
+    "38.676,-120.0775": "1501 Kirkwood Meadows Dr, Kirkwood, CA 95646, USA",
+    "38.6757,-120.0774": "1501 Kirkwood Meadows Dr, Kirkwood, CA 95646, USA"
+  },
+  "journal": {
+    "2026-04-12": {
+      "hash": "d8a8b4d39bbaa471943809cd1f2ab404",
+      "text": "Fresh powder blanketed the runs all morning as Colleen skied untracked snow through an active April storm, visibility dropping further by early afternoon.\n\n**Highlights:**\n- [Kirkwood Mountain Resort](https://en.wikipedia.org/wiki/Kirkwood_Mountain_Resort) \u2014 situated at 7,800 feet base elevation in the Sierra Nevada, Kirkwood is known for receiving some of the deepest snowpack in the Lake Tahoe region, making a true powder day in mid-April unusually lucky but not unheard of in a strong snow year."
+    },
+    "2026-04-13": {
+      "hash": "1590b79d6b3c509865c8a88346f7962e",
+      "text": "A midday summit selfie at Kirkwood captured the resort village below and a pink-clad skier carving the slope behind \u2014 clear skies, cumulus clouds, classic Sierra spring conditions.\n\n**Highlights:**\n- [Kirkwood Mountain Resort](https://en.wikipedia.org/wiki/Kirkwood_Mountain_Resort) \u2014 situated at 7,800 feet base elevation in Alpine County, Kirkwood receives among the highest average snowfall of any Lake Tahoe\u2013area resort, often exceeding 500 inches annually, due to its position directly in line with Pacific storm tracks."
+    },
+    "2026-04-18": {
+      "hash": "e203e69611c5bbf93190ca330e195b70",
+      "text": "Clear blue skies and firm spring snow greeted us as Colleen clicked in for a final day of laps on the expert terrain off Chair 6.\n\n**Highlights:**\n- [Kirkwood Mountain Resort](https://en.wikipedia.org/wiki/Kirkwood_Mountain_Resort) \u2014 situated at 7,800 feet base elevation in the Sierra Nevada, Kirkwood receives among the deepest average snowpack of any Tahoe-area resort, regularly topping 500 inches annually, making it a locals' favorite for late-season skiing."
+    }
+  },
+  "collage": {
+    "2026-04-12": {
+      "hash": "9f811c98c9233a57f6186a483fb3476c"
+    },
+    "2026-04-13": {
+      "hash": "4c60c60ce1435b31c9e725c5557a708c"
+    },
+    "2026-04-18": {
+      "hash": "b4f1dfc26268bbe089c2a4d32f3d7d5f"
+    }
+  }
+}

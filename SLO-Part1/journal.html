@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8834+VQ & 10 State Park Rd · April 26–29, 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f5ef;
+  --surface:#ffffff;
+  --text:#2a2318;
+  --muted:#7a6e60;
+  --accent:#8b5e3c;
+  --border:#ddd5c0;
+  --radius:6px;
+}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;line-height:1.75;}
+a{color:var(--accent);}
+header{
+  max-width:860px;margin:0 auto;padding:3rem 1.5rem 2rem;
+  border-bottom:2px solid var(--border);
+}
+header h1{font-size:2rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:700;}
+header .subtitle{color:var(--muted);font-size:0.95rem;margin-top:0.4rem;font-family:inherit;}
+header .description{color:var(--text);font-size:1rem;margin-top:0.75rem;max-width:65ch;}
+header .participants{color:var(--muted);font-size:0.875rem;margin-top:0.4rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.day{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem;border-bottom:1px solid var(--border);}
+.day-header{margin-bottom:1.5rem;}
+.day-header h2{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:1.35rem;font-weight:600;color:var(--text);
+}
+.day-loc{color:var(--muted);font-size:0.9rem;margin-top:0.25rem;}
+.collage{width:100%;border-radius:var(--radius);margin-bottom:1.5rem;display:block;}
+.journal-text{font-size:1.05rem;}
+.journal-text p{margin-bottom:0.75rem;}
+.journal-text ul{margin:0.5rem 0 1rem 1.25rem;}
+.journal-text li{margin-bottom:0.35rem;}
+.journal-text a{color:var(--accent);text-decoration:underline;}
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:6px;
+  margin-top:1.5rem;
+}
+.photo-item{cursor:pointer;overflow:hidden;border-radius:var(--radius);background:#e8e0d0;aspect-ratio:4/3;position:relative;}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s;}
+.photo-item:hover img{transform:scale(1.03);}
+.photo-item figcaption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(0,0,0,.45);color:#fff;
+  font-size:0.72rem;padding:3px 6px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+/* Lightbox */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
+#lb.open{display:flex;}
+#lb img{max-width:92vw;max-height:82vh;border-radius:4px;object-fit:contain;}
+#lb-caption{color:#ccc;font-size:0.85rem;margin-top:0.75rem;max-width:70ch;text-align:center;font-family:-apple-system,BlinkMacSystemFont,sans-serif;}
+#lb-close{position:fixed;top:1rem;right:1.25rem;font-size:2rem;color:#fff;cursor:pointer;line-height:1;opacity:.7;}
+#lb-close:hover{opacity:1;}
+#lb-prev,#lb-next{
+  position:fixed;top:50%;transform:translateY(-50%);
+  font-size:2.5rem;color:#fff;cursor:pointer;opacity:.6;
+  background:none;border:none;padding:0 0.75rem;
+}
+#lb-prev{left:0;}#lb-next{right:0;}
+#lb-prev:hover,#lb-next:hover{opacity:1;}
+footer{max-width:860px;margin:0 auto;padding:2rem 1.5rem;color:var(--muted);font-size:0.8rem;}
+#map-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+#map{height:380px;width:100%;}
+#map-controls{max-width:860px;margin:0 auto;padding:0.5rem 1.5rem;}
+#toggle-route{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:0.8rem;color:var(--muted);background:none;border:1px solid var(--border);
+  border-radius:4px;padding:3px 10px;cursor:pointer;
+}
+#toggle-route:hover{color:var(--text);border-color:var(--muted);}
+</style>
+</head>
+<body>
+<header>
+  <h1>8834+VQ & 10 State Park Rd · April 26–29, 2026</h1>
+  <p class="subtitle">4 days · 19 photos</p>
+  
+  
+</header>
+
+<section id="map-section">
+  <div id="map"></div>
+  <div id="map-controls"><button id="toggle-route">Hide route</button></div>
+</section>
+
+<section class="day" id="day-2026-04-26">
+  <div class="day-header">
+    <h2>Sunday, April 26, 2026</h2>
+    <p class="day-loc">FQVW+X2 Pinnacles, CA, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-04-26.jpg" alt="Day collage">
+  <div class="journal-text"><p>Spent the afternoon hiking through the rocky corridors and open ridgelines of Pinnacles National Park under a heavy overcast sky, moving between narrow boulder passages and elevated viewpoints of the volcanic landscape.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Pinnacles_National_Park" target="_blank" rel="noopener">Pinnacles National Park</a> — established as a national monument in 1908 and redesignated a national park in 2013; formed from the eroded remnants of an ancient volcano that migrated ~200 miles along the San Andreas Fault and is known for its volcanic breccia spires, talus caves, and California condor habitat.</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(0)"><img src="images/20260426_124059_thumb.jpg" alt="20260426_124059.jpg" loading="lazy"><figcaption>Hikers on Rocky Trail Through Pinnacles Canyon</figcaption></figure><div class="lb-data" data-src="images/20260426_124059_full.jpg" data-caption="Hikers on Rocky Trail Through Pinnacles Canyon" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(1)"><img src="images/20260426_133858_thumb.jpg" alt="20260426_133858.jpg" loading="lazy"><figcaption>Rocky Spires at Pinnacles National Park</figcaption></figure><div class="lb-data" data-src="images/20260426_133858_full.jpg" data-caption="Rocky Spires at Pinnacles National Park" style="display:none"></div></div>
+</section>
+
+<section class="day" id="day-2026-04-27">
+  <div class="day-header">
+    <h2>Monday, April 27, 2026</h2>
+    <p class="day-loc">3000 Live Oak Rd, Paso Robles, CA 93446, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-04-27.jpg" alt="Day collage">
+  <div class="journal-text"><p>Started the day among the vineyards of Paso Robles wine country before driving south to hike the open space hills above San Luis Obispo, where the views stretched across the valley and a garter snake crossed the trail at midday.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Paso_Robles_AVA" target="_blank" rel="noopener">Paso Robles AVA</a> — designated American Viticultural Area established in 1983, known for Zinfandel and Rhône-style varietals across over 40,000 planted acres</li><li><a href="https://en.wikipedia.org/wiki/San_Luis_Obispo,_California" target="_blank" rel="noopener">San Luis Obispo</a> — Central Coast city founded 1772 around Mission San Luis Obispo de Tolosa; open space trails ring the city's volcanic morros</li><li><a href="https://en.wikipedia.org/wiki/Santa_Lucia_Range" target="_blank" rel="noopener">Santa Lucia Range</a> — coastal mountain range running roughly 105 miles through San Luis Obispo and Monterey counties, visible as backdrop from city trails</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(2)"><img src="images/20260427_081302_thumb.jpg" alt="20260427_081302.jpg" loading="lazy"><figcaption>Sunlit Vineyard Rows with Distant Farmhouse</figcaption></figure><div class="lb-data" data-src="images/20260427_081302_full.jpg" data-caption="Sunlit Vineyard Rows with Distant Farmhouse" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260427_131349_thumb.jpg" alt="20260427_131349.jpg" loading="lazy"><figcaption>Two Hikers Climbing Trail Above San Luis Obispo</figcaption></figure><div class="lb-data" data-src="images/20260427_131349_full.jpg" data-caption="Two Hikers Climbing Trail Above San Luis Obispo" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260427_140413_thumb.jpg" alt="20260427_140413.jpg" loading="lazy"><figcaption>Garter Snake Slithering Across Dirt Trail</figcaption></figure><div class="lb-data" data-src="images/20260427_140413_full.jpg" data-caption="Garter Snake Slithering Across Dirt Trail" style="display:none"></div></div>
+</section>
+
+<section class="day" id="day-2026-04-28">
+  <div class="day-header">
+    <h2>Tuesday, April 28, 2026</h2>
+    <p class="day-loc">10 State Park Rd, Morro Bay, CA 93442, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-04-28.jpg" alt="Day collage">
+  <div class="journal-text"><p>Spent the morning kayaking and birding around Morro Bay before driving south to explore the bluffs and beaches of Montaña de Oro State Park under cloudless midday skies.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Morro_Rock" target="_blank" rel="noopener">Morro Rock</a> — A 581-foot volcanic plug estimated at 23 million years old; a California Historical Landmark and protected peregrine falcon habitat since 1968.</li><li><a href="https://en.wikipedia.org/wiki/Morro_Bay,_California" target="_blank" rel="noopener">Morro Bay</a> — A sheltered estuary on California's Central Coast, known for its productive bird and marine life.</li><li><a href="https://en.wikipedia.org/wiki/Monta%C3%B1a_de_Oro_State_Park" target="_blank" rel="noopener">Montaña de Oro State Park</a> — A 8,000-acre park in San Luis Obispo County established in 1965, featuring exposed Monterey Formation shale cliffs, tide pools, and the Bluff Trail.</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(5)"><img src="images/20260428_102130_thumb.jpg" alt="20260428_102130.jpg" loading="lazy"><figcaption>Kayakers in Morro Bay with Morro Rock View</figcaption></figure><div class="lb-data" data-src="images/20260428_102130_full.jpg" data-caption="Kayakers in Morro Bay with Morro Rock View" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(6)"><img src="images/20260428_102402_thumb.jpg" alt="20260428_102402.jpg" loading="lazy"><figcaption>Morro Rock Viewed Across the Bay</figcaption></figure><div class="lb-data" data-src="images/20260428_102402_full.jpg" data-caption="Morro Rock Viewed Across the Bay" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(7)"><img src="images/20260428_115601_thumb.jpg" alt="20260428_115601.jpg" loading="lazy"><figcaption>Rugged Coastal Bluffs at Montaña de Oro State Park</figcaption></figure><div class="lb-data" data-src="images/20260428_115601_full.jpg" data-caption="Rugged Coastal Bluffs at Montaña de Oro State Park" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(8)"><img src="images/20260428_115945_thumb.jpg" alt="20260428_115945.jpg" loading="lazy"><figcaption>Tilted Sedimentary Rock Formations at Coastal Cove</figcaption></figure><div class="lb-data" data-src="images/20260428_115945_full.jpg" data-caption="Tilted Sedimentary Rock Formations at Coastal Cove" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(9)"><img src="images/20260428_121714_thumb.jpg" alt="20260428_121714.jpg" loading="lazy"><figcaption>Secluded Cove at Montaña de Oro State Park</figcaption></figure><div class="lb-data" data-src="images/20260428_121714_full.jpg" data-caption="Secluded Cove at Montaña de Oro State Park" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(10)"><img src="images/20260428_122150_thumb.jpg" alt="20260428_122150.jpg" loading="lazy"><figcaption>Rocky Cove on the California Central Coast</figcaption></figure><div class="lb-data" data-src="images/20260428_122150_full.jpg" data-caption="Rocky Cove on the California Central Coast" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(11)"><img src="images/20260428_125055_thumb.jpg" alt="20260428_125055.jpg" loading="lazy"><figcaption>Secluded Beach Cove with Sandstone Cliffs</figcaption></figure><div class="lb-data" data-src="images/20260428_125055_full.jpg" data-caption="Secluded Beach Cove with Sandstone Cliffs" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(12)"><img src="images/20260428_132012_thumb.jpg" alt="20260428_132012.jpg" loading="lazy"><figcaption>Three Hikers Resting on Coastal Beach Boulder</figcaption></figure><div class="lb-data" data-src="images/20260428_132012_full.jpg" data-caption="Three Hikers Resting on Coastal Beach Boulder" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(13)"><img src="images/20260428_132042_thumb.jpg" alt="20260428_132042.jpg" loading="lazy"><figcaption>Group Selfie at Folded Rock Cliff Formation</figcaption></figure><div class="lb-data" data-src="images/20260428_132042_full.jpg" data-caption="Group Selfie at Folded Rock Cliff Formation" style="display:none"></div></div>
+</section>
+
+<section class="day" id="day-2026-04-29">
+  <div class="day-header">
+    <h2>Wednesday, April 29, 2026</h2>
+    <p class="day-loc">2651 Price St, Pismo Beach, CA 93449, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-04-29.jpg" alt="Day collage">
+  <div class="journal-text"><p>Started the morning spotting wildlife in Pismo Beach before cycling out to Avila Beach's harbor pier at midday, then returned along the coast to explore sea arches and tide pools through the afternoon.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Avila_Beach,_California" target="_blank" rel="noopener">Avila Beach, California</a> — small harbor village in San Luis Obispo County, sheltered by Point San Luis and known for its calm anchorage and fishing boats</li><li><a href="https://en.wikipedia.org/wiki/Pismo_Beach,_California" target="_blank" rel="noopener">Pismo Beach</a> — Central California city famous for its clam-digging heritage, rocky tidepools, and dramatic sandstone sea arches</li><li><a href="https://en.wikipedia.org/wiki/Dinosaur_Caves_Park" target="_blank" rel="noopener">Dinosaur Caves Park</a> — 11-acre coastal bluff park in Shell Beach offering panoramic Pacific views and tidepool access</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(14)"><img src="images/20260429_064242_thumb.jpg" alt="20260429_064242.jpg" loading="lazy"><figcaption>Two Cottontail Rabbits by Iron Fence</figcaption></figure><div class="lb-data" data-src="images/20260429_064242_full.jpg" data-caption="Two Cottontail Rabbits by Iron Fence" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(15)"><img src="images/20260429_112829_thumb.jpg" alt="20260429_112829.jpg" loading="lazy"><figcaption>Fishing Boats Moored in a Rocky Coastal Cove</figcaption></figure><div class="lb-data" data-src="images/20260429_112829_full.jpg" data-caption="Fishing Boats Moored in a Rocky Coastal Cove" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(16)"><img src="images/20260429_112852_thumb.jpg" alt="20260429_112852.jpg" loading="lazy"><figcaption>Cyclist on Wooden Pier Overlooking Coastal Harbor</figcaption></figure><div class="lb-data" data-src="images/20260429_112852_full.jpg" data-caption="Cyclist on Wooden Pier Overlooking Coastal Harbor" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(17)"><img src="images/20260429_140110_thumb.jpg" alt="20260429_140110.jpg" loading="lazy"><figcaption>Sea Arch View Through Coastal Rock Formation</figcaption></figure><div class="lb-data" data-src="images/20260429_140110_full.jpg" data-caption="Sea Arch View Through Coastal Rock Formation" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(18)"><img src="images/20260429_144022_thumb.jpg" alt="20260429_144022.jpg" loading="lazy"><figcaption>Rocky Tide Pools at Pismo Beach Cove</figcaption></figure><div class="lb-data" data-src="images/20260429_144022_full.jpg" data-caption="Rocky Tide Pools at Pismo Beach Cove" style="display:none"></div></div>
+</section>
+
+<footer>Generated with Photo Journal Creator</footer>
+
+<!-- Lightbox overlay -->
+<div id="lb" role="dialog" aria-modal="true">
+  <span id="lb-close" onclick="closeLightbox()" title="Close">&times;</span>
+  <button id="lb-prev" onclick="lbNav(-1)" aria-label="Previous">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <p id="lb-caption"></p>
+  <button id="lb-next" onclick="lbNav(1)" aria-label="Next">&#8594;</button>
+</div>
+
+<script>
+var lbData=(function(){
+  var nodes=document.querySelectorAll('.lb-data');
+  return Array.from(nodes).map(function(n){return{src:n.dataset.src,caption:n.dataset.caption}});
+})();
+var lbIdx=0;
+function openLightbox(i){lbIdx=i;_lbShow();}
+function closeLightbox(){document.getElementById('lb').classList.remove('open');}
+function lbNav(d){lbIdx=(lbIdx+d+lbData.length)%lbData.length;_lbShow();}
+function _lbShow(){
+  var d=lbData[lbIdx];
+  document.getElementById('lb-img').src=d.src;
+  document.getElementById('lb-caption').textContent=d.caption;
+  document.getElementById('lb').classList.add('open');
+}
+document.addEventListener('keydown',function(e){
+  var lb=document.getElementById('lb');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
+});
+document.getElementById('lb').addEventListener('click',function(e){
+  if(e.target===this)closeLightbox();
+});
+</script>
+
+<script>
+(function(){
+  var pins=[{"day_id": "day-2026-04-26", "label": "Sunday, April 26, 2026", "lat": 36.498913, "lon": -121.202544, "color": "#e63946"}, {"day_id": "day-2026-04-27", "label": "Monday, April 27, 2026", "lat": 35.399419, "lon": -120.701619, "color": "#2a9d8f"}, {"day_id": "day-2026-04-28", "label": "Tuesday, April 28, 2026", "lat": 35.288355, "lon": -120.881407, "color": "#e9c46a"}, {"day_id": "day-2026-04-29", "label": "Wednesday, April 29, 2026", "lat": 35.158888, "lon": -120.698286, "color": "#f4a261"}];
+  if(!pins.length)return;
+  var map=L.map('map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom:18
+  }).addTo(map);
+  pins.forEach(function(p){
+    var m=L.circleMarker([p.lat,p.lon],{
+      radius:9,color:'#fff',weight:2,fillColor:p.color,fillOpacity:0.9
+    }).addTo(map);
+    m.on('click',function(){
+      var el=document.getElementById(p.day_id);
+      if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    m.bindTooltip(p.label,{direction:'top',offset:[0,-8]});
+  });
+  var latlngs=pins.map(function(p){return[p.lat,p.lon];});
+  var routeLine=L.polyline(latlngs,{color:'#888',weight:2,dashArray:'5,6'}).addTo(map);
+  document.getElementById('toggle-route').addEventListener('click',function(){
+    if(map.hasLayer(routeLine)){map.removeLayer(routeLine);this.textContent='Show route';}
+    else{map.addLayer(routeLine);this.textContent='Hide route';}
+  });
+  if(pins.length===1){
+    map.setView([pins[0].lat,pins[0].lon],13);
+  }else{
+    map.fitBounds(L.latLngBounds(latlngs),{padding:[40,40]});
+  }
+})();
+</script>
+</body>
+</html>

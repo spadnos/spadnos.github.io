@@ -1,0 +1,37 @@
+{
+  "geocode": {
+    "35.6855,-121.169": "Casa Del Sol, San Simeon, CA 93452, USA",
+    "35.6852,-121.1684": "Casa Del Monte, San Simeon, CA 93452, USA",
+    "35.6624,-121.2561": "MP6V+WH San Simeon, CA, USA",
+    "35.6622,-121.2556": "MP6V+VQ San Simeon, CA, USA",
+    "35.6543,-120.624": "4380 CA-46, Paso Robles, CA 93446, USA",
+    "35.6541,-120.6272": "4380 CA-46, Paso Robles, CA 93446, USA",
+    "35.654,-120.626": "4380 CA-46, Paso Robles, CA 93446, USA",
+    "36.1596,-121.672": "53034 CA-1, Big Sur, CA 93920, USA"
+  },
+  "journal": {
+    "2026-05-01": {
+      "hash": "235ce49dae394bbb1a8a995cf8c576a6",
+      "text": "Spent the morning touring Hearst Castle's Neptune Pool and Casa Grande, then drove up the coast to watch elephant seals and pelicans at Piedras Blancas under bright midday sun.\n\n**Highlights:**\n- [Hearst Castle](https://en.wikipedia.org/wiki/Hearst_Castle) \u2014 Built 1919\u20131947 for William Randolph Hearst; designed by architect Julia Morgan in Spanish Colonial Revival style\n- [Neptune Pool](https://en.wikipedia.org/wiki/Neptune_Pool) \u2014 Outdoor marble pool featuring a Greco-Roman temple fa\u00e7ade; completed in its current form in 1936\n- [Piedras Blancas elephant seal rookery](https://en.wikipedia.org/wiki/Piedras_Blancas) \u2014 Major northern elephant seal haul-out site near San Simeon, open for free public viewing year-round\n- [Brown pelican](https://en.wikipedia.org/wiki/Brown_pelican) \u2014 Pacific Coast species; once endangered, recovered after DDT ban in 1972"
+    },
+    "2026-05-02": {
+      "hash": "d03d13913a2d9673edffb88d6b64cf4a",
+      "text": "Spent the evening at Sensorio in Paso Robles, moving through Bruce Munro's glowing fiber-optic landscape after sunset and into full darkness. The installation transformed the oak-studded Central Coast hills into an otherworldly illuminated meadow.\n\n**Highlights:**\n\n- [Sensorio](https://en.wikipedia.org/wiki/Sensorio) \u2014 outdoor art experience in Paso Robles opened in 2019, set across 15 acres of Central Coast wine country terrain\n- [Field of Light](https://en.wikipedia.org/wiki/Field_of_Light) \u2014 solar-powered installation by British artist Bruce Munro featuring approximately 58,800 fiber-optic stems topped with frosted glass spheres; originally debuted at Uluru, Australia in 2016"
+    },
+    "2026-05-03": {
+      "hash": "c10a934655afe1bad18162bfc36f1573",
+      "text": "Spent early afternoon at Julia Pfeiffer Burns State Park, taking in McWay Falls from the coastal overlook trail under hazy midday light. The turquoise cove and dramatic cliffs made for a quintessential Big Sur afternoon.\n\n**Highlights:**\n\n- [McWay Falls](https://en.wikipedia.org/wiki/McWay_Falls) \u2014 an 80-foot tideline waterfall that drops directly onto a secluded beach, one of the few such falls in California accessible by a short trail\n- [Julia Pfeiffer Burns State Park](https://en.wikipedia.org/wiki/Julia_Pfeiffer_Burns_State_Park) \u2014 established 1962, named after a pioneering Big Sur homesteader; encompasses roughly 3,762 acres of rugged coastline and redwood canyons"
+    }
+  },
+  "collage": {
+    "2026-05-01": {
+      "hash": "2e13c2aa011b534e52aa2d021abae121"
+    },
+    "2026-05-02": {
+      "hash": "19927dfc2eda792c34290b2a836e74ff"
+    },
+    "2026-05-03": {
+      "hash": "37a216fbac96a09772b9e9275632631b"
+    }
+  }
+}
