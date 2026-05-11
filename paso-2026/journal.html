@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paso Robles Wine Country</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f5ef;
+  --surface:#ffffff;
+  --text:#2a2318;
+  --muted:#7a6e60;
+  --accent:#8b5e3c;
+  --border:#ddd5c0;
+  --radius:6px;
+}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;line-height:1.75;}
+a{color:var(--accent);}
+header{
+  max-width:860px;margin:0 auto;padding:3rem 1.5rem 2rem;
+  border-bottom:2px solid var(--border);
+}
+header h1{font-size:2rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:700;}
+header .subtitle{color:var(--muted);font-size:0.95rem;margin-top:0.4rem;font-family:inherit;}
+header .description{color:var(--text);font-size:1rem;margin-top:0.75rem;max-width:65ch;}
+header .participants{color:var(--muted);font-size:0.875rem;margin-top:0.4rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.day{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem;border-bottom:1px solid var(--border);}
+.day-header{margin-bottom:1.5rem;}
+.day-header h2{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:1.35rem;font-weight:600;color:var(--text);
+}
+.day-loc{color:var(--muted);font-size:0.9rem;margin-top:0.25rem;}
+.collage{width:100%;border-radius:var(--radius);margin-bottom:1.5rem;display:block;}
+.journal-text{font-size:1.05rem;}
+.journal-text p{margin-bottom:0.75rem;}
+.journal-text ul{margin:0.5rem 0 1rem 1.25rem;}
+.journal-text li{margin-bottom:0.35rem;}
+.journal-text a{color:var(--accent);text-decoration:underline;}
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:6px;
+  margin-top:1.5rem;
+}
+.photo-item{cursor:pointer;overflow:hidden;border-radius:var(--radius);background:#e8e0d0;aspect-ratio:4/3;position:relative;}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s;}
+.photo-item:hover img{transform:scale(1.03);}
+.photo-item figcaption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(0,0,0,.45);color:#fff;
+  font-size:0.72rem;padding:3px 6px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+/* Lightbox */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
+#lb.open{display:flex;}
+#lb img{max-width:92vw;max-height:82vh;border-radius:4px;object-fit:contain;}
+#lb-caption{color:#ccc;font-size:0.85rem;margin-top:0.75rem;max-width:70ch;text-align:center;font-family:-apple-system,BlinkMacSystemFont,sans-serif;}
+#lb-close{position:fixed;top:1rem;right:1.25rem;font-size:2rem;color:#fff;cursor:pointer;line-height:1;opacity:.7;}
+#lb-close:hover{opacity:1;}
+#lb-prev,#lb-next{
+  position:fixed;top:50%;transform:translateY(-50%);
+  font-size:2.5rem;color:#fff;cursor:pointer;opacity:.6;
+  background:none;border:none;padding:0 0.75rem;
+}
+#lb-prev{left:0;}#lb-next{right:0;}
+#lb-prev:hover,#lb-next:hover{opacity:1;}
+footer{max-width:860px;margin:0 auto;padding:2rem 1.5rem;color:var(--muted);font-size:0.8rem;}
+#map-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+#map{height:380px;width:100%;}
+#map-controls{max-width:860px;margin:0 auto;padding:0.5rem 1.5rem;}
+#toggle-route{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:0.8rem;color:var(--muted);background:none;border:1px solid var(--border);
+  border-radius:4px;padding:3px 10px;cursor:pointer;
+}
+#toggle-route:hover{color:var(--text);border-color:var(--muted);}
+</style>
+</head>
+<body>
+<header>
+  <h1>Paso Robles Wine Country</h1>
+  <p class="subtitle">5 days · 19 photos</p>
+  <p class='description'>A week exploring the central coast: Heart Castle, Hikes, Tide Pools, etc.</p>
+  <p class='participants'>With: Steve, Colleen</p>
+</header>
+
+<section id="map-section">
+  <div id="map"></div>
+  <div id="map-controls"><button id="toggle-route">Hide route</button></div>
+</section>
+
+<section class="day" id="day-2026-04-29">
+  <div class="day-header">
+    <h2>Wednesday, April 29, 2026</h2>
+    <p class="day-loc">3993 Avila Beach Dr, San Luis Obispo, CA 93405, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-04-29.jpg" alt="Day collage">
+  <div class="journal-text"><p>Spent a sunny Wednesday cycling Avila Beach's pier in the morning, then drove south to explore Pismo Beach's sea arches and coastal bluffs in the afternoon.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Avila_Beach,_California" target="_blank" rel="noopener">Avila Beach Pier</a> — historic Central Coast harbor pier offering views of the calm Avila Beach anchorage and surrounding coastal hills</li><li><a href="https://en.wikipedia.org/wiki/Pismo_Beach,_California" target="_blank" rel="noopener">Pismo Beach</a> — city on California's Central Coast known for its rugged sea arches, tide pools, and rocky Pacific shoreline</li><li><a href="https://en.wikipedia.org/wiki/Dinosaur_Caves_Park" target="_blank" rel="noopener">Dinosaur Caves Park</a> — coastal bluff park in Pismo Beach named for a former dinosaur-themed attraction, offering panoramic views of sandstone cliffs and tide pools below</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(0)"><img src="images/20260429_112852_thumb.jpg" alt="20260429_112852.jpg" loading="lazy"><figcaption>Cyclist on Wooden Pier Overlooking Coastal Harbor</figcaption></figure><div class="lb-data" data-src="images/20260429_112852_full.jpg" data-caption="Cyclist on Wooden Pier Overlooking Coastal Harbor" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(1)"><img src="images/20260429_140110_thumb.jpg" alt="20260429_140110.jpg" loading="lazy"><figcaption>Natural Sea Arch Framing Ocean View</figcaption></figure><div class="lb-data" data-src="images/20260429_140110_full.jpg" data-caption="Natural Sea Arch Framing Ocean View" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(2)"><img src="images/20260429_144022_thumb.jpg" alt="20260429_144022.jpg" loading="lazy"><figcaption>Rocky Tide Pools at Pismo Beach Cove</figcaption></figure><div class="lb-data" data-src="images/20260429_144022_full.jpg" data-caption="Rocky Tide Pools at Pismo Beach Cove" style="display:none"></div></div>
+</section>
+
+<section class="day" id="day-2026-04-30">
+  <div class="day-header">
+    <h2>Thursday, April 30, 2026</h2>
+    <p class="day-loc">C3WJ+XC, Cayucos, CA 93430, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-04-30.jpg" alt="Day collage">
+  <div class="journal-text"><p>Spent the morning along the Cayucos shoreline examining a graffiti-covered shipwreck visible from the coastal bluffs, then drove south to the hamlet of Harmony for a brief, cheerful roadside stop.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Cayucos,_California" target="_blank" rel="noopener">Cayucos, California</a> — small Central Coast community incorporated in the 1860s, known for its pier and scenic bluffs along Highway 1</li><li><a href="https://en.wikipedia.org/wiki/Cayucos_Pier" target="_blank" rel="noopener">Cayucos Pier</a> — built in 1875, one of the oldest surviving piers on the California coast</li><li><a href="https://en.wikipedia.org/wiki/Harmony,_California" target="_blank" rel="noopener">Harmony, California</a> — unincorporated community with a population of roughly 18, formerly home to the Harmony Valley Creamery; now a tourist stop with glass blowing, pottery, and wine tasting</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260430_105053_thumb.jpg" alt="20260430_105053.jpg" loading="lazy"><figcaption>Rusted Shipwreck off Coastal Bluff</figcaption></figure><div class="lb-data" data-src="images/20260430_105053_full.jpg" data-caption="Rusted Shipwreck off Coastal Bluff" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260430_111448_thumb.jpg" alt="20260430_111448.jpg" loading="lazy"><figcaption>Rusted Shipwreck off Cayucos Coast</figcaption></figure><div class="lb-data" data-src="images/20260430_111448_full.jpg" data-caption="Rusted Shipwreck off Cayucos Coast" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(5)"><img src="images/20260430_140530_thumb.jpg" alt="20260430_140530.jpg" loading="lazy"><figcaption>Visiting Harmony, California (Population 18)</figcaption></figure><div class="lb-data" data-src="images/20260430_140530_full.jpg" data-caption="Visiting Harmony, California (Population 18)" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(6)"><img src="images/20260430_145224_thumb.jpg" alt="20260430_145224.jpg" loading="lazy"><figcaption>Town of Harmony Welcome Sign with Vintage Truck and Tractor</figcaption></figure><div class="lb-data" data-src="images/20260430_145224_full.jpg" data-caption="Town of Harmony Welcome Sign with Vintage Truck and Tractor" style="display:none"></div></div>
+</section>
+
+<section class="day" id="day-2026-05-01">
+  <div class="day-header">
+    <h2>Friday, May 1, 2026</h2>
+    <p class="day-loc">Casa Del Sol, San Simeon, CA 93452, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-05-01.jpg" alt="Day collage">
+  <div class="journal-text"><p>Spent the morning touring Hearst Castle's guesthouses, Neptune Pool, and Casa Grande, then drove down the coast to watch elephant seals and pelicans at Piedras Blancas — sunshine throughout, crowds light.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Hearst_Castle" target="_blank" rel="noopener">Hearst Castle</a> — hilltop estate built for William Randolph Hearst beginning in 1919, designed by architect Julia Morgan in Mediterranean Revival style</li><li><a href="https://en.wikipedia.org/wiki/Neptune_Pool" target="_blank" rel="noopener">Neptune Pool</a> — outdoor pool featuring a reconstructed Roman temple façade; holds approximately 345,000 gallons</li><li><a href="https://en.wikipedia.org/wiki/Casa_Grande_(Hearst_Castle" target="_blank" rel="noopener">Casa Grande</a>) — main house anchored by twin Celestial Towers modeled on a Spanish cathedral façade</li><li><a href="https://en.wikipedia.org/wiki/Piedras_Blancas_elephant_seal_rookery" target="_blank" rel="noopener">Piedras Blancas elephant seal rookery</a> — established in 1990, now home to over 17,000 northern elephant seals</li><li><a href="https://en.wikipedia.org/wiki/Brown_pelican" target="_blank" rel="noopener">Brown pelican</a> — Pacific Coast native, removed from U.S. endangered species list in 2009</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(7)"><img src="images/20260501_102329_thumb.jpg" alt="20260501_102329.jpg" loading="lazy"><figcaption>Casa del Sol Fountain at Hearst Castle</figcaption></figure><div class="lb-data" data-src="images/20260501_102329_full.jpg" data-caption="Casa del Sol Fountain at Hearst Castle" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(8)"><img src="images/20260501_103431_thumb.jpg" alt="20260501_103431.jpg" loading="lazy"><figcaption>Neptune Pool at Hearst Castle</figcaption></figure><div class="lb-data" data-src="images/20260501_103431_full.jpg" data-caption="Neptune Pool at Hearst Castle" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(9)"><img src="images/20260501_104717_thumb.jpg" alt="20260501_104717.jpg" loading="lazy"><figcaption>Casa Grande Facade at Hearst Castle</figcaption></figure><div class="lb-data" data-src="images/20260501_104717_full.jpg" data-caption="Casa Grande Facade at Hearst Castle" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(10)"><img src="images/20260501_122744_thumb.jpg" alt="20260501_122744.jpg" loading="lazy"><figcaption>Elephant Seal Colony Resting on California Coast Beach</figcaption></figure><div class="lb-data" data-src="images/20260501_122744_full.jpg" data-caption="Elephant Seal Colony Resting on California Coast Beach" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(11)"><img src="images/20260501_122912_thumb.jpg" alt="20260501_122912.jpg" loading="lazy"><figcaption>Napping Elephant Seal Among Coastal Wildflowers</figcaption></figure><div class="lb-data" data-src="images/20260501_122912_full.jpg" data-caption="Napping Elephant Seal Among Coastal Wildflowers" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(12)"><img src="images/20260501_123441_thumb.jpg" alt="20260501_123441.jpg" loading="lazy"><figcaption>Brown Pelican Flock in Coastal Flight</figcaption></figure><div class="lb-data" data-src="images/20260501_123441_full.jpg" data-caption="Brown Pelican Flock in Coastal Flight" style="display:none"></div></div>
+</section>
+
+<section class="day" id="day-2026-05-02">
+  <div class="day-header">
+    <h2>Saturday, May 2, 2026</h2>
+    <p class="day-loc">Moonstone Beach Park, 5744 Moonstone Beach Dr, Cambria, CA 93428, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-05-02.jpg" alt="Day collage">
+  <div class="journal-text"><p>Spent the afternoon on the Cambria coast before heading inland to Paso Robles for an evening at Sensorio's sweeping light art installation across the dark hillsides.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Moonstone_Beach" target="_blank" rel="noopener">Moonstone Beach Park</a> — a coastal park in Cambria, CA, known for its driftwood-lined boardwalk and informal folk-art installations along the bluffs</li><li><a href="https://en.wikipedia.org/wiki/Bruce_Munro" target="_blank" rel="noopener">Sensorio Field of Light</a> — outdoor installation by British artist Bruce Munro featuring over 58,000 fiber-optic stems across 15 acres of Paso Robles wine country; opened 2019 and solar-powered</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(13)"><img src="images/20260502_131136_thumb.jpg" alt="20260502_131136.jpg" loading="lazy"><figcaption>Whimsical Tree Stump Faces in Coastal Garden</figcaption></figure><div class="lb-data" data-src="images/20260502_131136_full.jpg" data-caption="Whimsical Tree Stump Faces in Coastal Garden" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(14)"><img src="images/20260502_193058_thumb.jpg" alt="20260502_193058.jpg" loading="lazy"><figcaption>Bruce Munro's Field of Light at Sensorio, Paso Robles</figcaption></figure><div class="lb-data" data-src="images/20260502_193058_full.jpg" data-caption="Bruce Munro's Field of Light at Sensorio, Paso Robles" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(15)"><img src="images/20260502_204137_thumb.jpg" alt="20260502_204137.jpg" loading="lazy"><figcaption>Illuminated Dodecahedron Light Sculpture at Night</figcaption></figure><div class="lb-data" data-src="images/20260502_204137_full.jpg" data-caption="Illuminated Dodecahedron Light Sculpture at Night" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(16)"><img src="images/20260502_210343_thumb.jpg" alt="20260502_210343.jpg" loading="lazy"><figcaption>Bruce Munro Field of Light Installation at Night</figcaption></figure><div class="lb-data" data-src="images/20260502_210343_full.jpg" data-caption="Bruce Munro Field of Light Installation at Night" style="display:none"></div></div>
+</section>
+
+<section class="day" id="day-2026-05-03">
+  <div class="day-header">
+    <h2>Sunday, May 3, 2026</h2>
+    <p class="day-loc">53034 CA-1, Big Sur, CA 93920, USA</p>
+  </div>
+  <img class="collage" src="collage_2026-05-03.jpg" alt="Day collage">
+  <div class="journal-text"><p>Drove north along CA-1 after a late brunch, stopping at the McWay Falls overlook in Julia Pfeiffer Burns State Park under overcast skies for a moody, uncrowded midday view.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/McWay_Falls" target="_blank" rel="noopener">McWay Falls</a> — an 80-foot tidefall that drops directly onto a secluded cove beach; one of the few such waterfalls on the California coast</li><li><a href="https://en.wikipedia.org/wiki/Julia_Pfeiffer_Burns_State_Park" target="_blank" rel="noopener">Julia Pfeiffer Burns State Park</a> — established 1962, named after a local Big Sur homesteader; the overlook trail provides the classic vantage point above the cove</li></ul></div>
+  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(17)"><img src="images/20260503_133938_thumb.jpg" alt="20260503_133938.jpg" loading="lazy"><figcaption>McWay Falls at Julia Pfeiffer Burns State Park</figcaption></figure><div class="lb-data" data-src="images/20260503_133938_full.jpg" data-caption="McWay Falls at Julia Pfeiffer Burns State Park" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(18)"><img src="images/20260503_133955_thumb.jpg" alt="20260503_133955.jpg" loading="lazy"><figcaption>McWay Falls at Julia Pfeiffer Burns State Park</figcaption></figure><div class="lb-data" data-src="images/20260503_133955_full.jpg" data-caption="McWay Falls at Julia Pfeiffer Burns State Park" style="display:none"></div></div>
+</section>
+
+<footer>Generated with Photo Journal Creator</footer>
+
+<!-- Lightbox overlay -->
+<div id="lb" role="dialog" aria-modal="true">
+  <span id="lb-close" onclick="closeLightbox()" title="Close">&times;</span>
+  <button id="lb-prev" onclick="lbNav(-1)" aria-label="Previous">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <p id="lb-caption"></p>
+  <button id="lb-next" onclick="lbNav(1)" aria-label="Next">&#8594;</button>
+</div>
+
+<script>
+var lbData=(function(){
+  var nodes=document.querySelectorAll('.lb-data');
+  return Array.from(nodes).map(function(n){return{src:n.dataset.src,caption:n.dataset.caption}});
+})();
+var lbIdx=0;
+function openLightbox(i){lbIdx=i;_lbShow();}
+function closeLightbox(){document.getElementById('lb').classList.remove('open');}
+function lbNav(d){lbIdx=(lbIdx+d+lbData.length)%lbData.length;_lbShow();}
+function _lbShow(){
+  var d=lbData[lbIdx];
+  document.getElementById('lb-img').src=d.src;
+  document.getElementById('lb-caption').textContent=d.caption;
+  document.getElementById('lb').classList.add('open');
+}
+document.addEventListener('keydown',function(e){
+  var lb=document.getElementById('lb');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
+});
+document.getElementById('lb').addEventListener('click',function(e){
+  if(e.target===this)closeLightbox();
+});
+</script>
+
+<script>
+(function(){
+  var pins=[{"day_id": "day-2026-04-29", "label": "Wednesday, April 29, 2026", "lat": 35.158122, "lon": -120.692724, "color": "#e63946"}, {"day_id": "day-2026-04-30", "label": "Thursday, April 30, 2026", "lat": 35.478254, "lon": -120.971047, "color": "#2a9d8f"}, {"day_id": "day-2026-05-01", "label": "Friday, May 1, 2026", "lat": 35.673797, "lon": -121.212418, "color": "#e9c46a"}, {"day_id": "day-2026-05-02", "label": "Saturday, May 2, 2026", "lat": 35.632862, "lon": -120.746039, "color": "#f4a261"}, {"day_id": "day-2026-05-03", "label": "Sunday, May 3, 2026", "lat": 36.159624, "lon": -121.671957, "color": "#264653"}];
+  if(!pins.length)return;
+  var map=L.map('map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom:18
+  }).addTo(map);
+  pins.forEach(function(p){
+    var m=L.circleMarker([p.lat,p.lon],{
+      radius:9,color:'#fff',weight:2,fillColor:p.color,fillOpacity:0.9
+    }).addTo(map);
+    m.on('click',function(){
+      var el=document.getElementById(p.day_id);
+      if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    m.bindTooltip(p.label,{direction:'top',offset:[0,-8]});
+  });
+  var latlngs=pins.map(function(p){return[p.lat,p.lon];});
+  var routeLine=L.polyline(latlngs,{color:'#888',weight:2,dashArray:'5,6'}).addTo(map);
+  document.getElementById('toggle-route').addEventListener('click',function(){
+    if(map.hasLayer(routeLine)){map.removeLayer(routeLine);this.textContent='Show route';}
+    else{map.addLayer(routeLine);this.textContent='Hide route';}
+  });
+  if(pins.length===1){
+    map.setView([pins[0].lat,pins[0].lon],13);
+  }else{
+    map.fitBounds(L.latLngBounds(latlngs),{padding:[40,40]});
+  }
+})();
+</script>
+</body>
+</html>

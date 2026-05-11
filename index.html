@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Journals</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f5ef;
+  --surface:#ffffff;
+  --text:#2a2318;
+  --muted:#7a6e60;
+  --accent:#8b5e3c;
+  --border:#ddd5c0;
+  --radius:8px;
+}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;line-height:1.75;min-height:100vh;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+header{
+  max-width:860px;margin:0 auto;padding:3.5rem 1.5rem 2.5rem;
+  border-bottom:2px solid var(--border);
+}
+header h1{
+  font-size:2.2rem;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-weight:700;
+  letter-spacing:-0.5px;
+}
+header .tagline{
+  color:var(--muted);
+  font-size:1rem;
+  margin-top:0.5rem;
+  font-style:italic;
+}
+
+main{max-width:860px;margin:0 auto;padding:3rem 1.5rem;}
+
+.section-label{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:0.7rem;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+.journal-list{
+  display:flex;
+  flex-direction:column;
+  gap:1.5px;
+}
+
+.journal-card{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:box-shadow .18s, border-color .18s;
+  text-decoration:none;
+  color:inherit;
+}
+.journal-card:hover{
+  box-shadow:0 4px 18px rgba(42,35,24,0.1);
+  border-color:#c4b89a;
+  text-decoration:none;
+}
+
+.card-thumb{
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:#e8e0d0;
+  height:100%;
+}
+.card-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .25s;
+}
+.journal-card:hover .card-thumb img{transform:scale(1.04);}
+
+.card-body{
+  padding:1.25rem 1.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:0.35rem;
+}
+.card-title{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:1.15rem;
+  font-weight:600;
+  color:var(--text);
+}
+.card-meta{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:0.8rem;
+  color:var(--muted);
+}
+.card-desc{
+  font-size:0.95rem;
+  color:var(--text);
+  margin-top:0.25rem;
+  line-height:1.55;
+}
+.card-link{
+  margin-top:0.6rem;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:0.8rem;
+  color:var(--accent);
+}
+
+@media(max-width:540px){
+  .journal-card{grid-template-columns:1fr;}
+  .card-thumb{aspect-ratio:16/7;}
+}
+
+footer{
+  max-width:860px;margin:0 auto;
+  padding:2.5rem 1.5rem;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:0.8rem;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Travel Journals</h1>
+  <p class="tagline">Notes and photos from the road</p>
+</header>
+
+<main>
+  <p class="section-label">Journals</p>
+  <div class="journal-list">
+
+    <a class="journal-card" href="paso-2026/journal.html">
+      <div class="card-thumb">
+        <img src="paso-2026/collage_2026-05-01.jpg" alt="Paso Robles Wine Country">
+      </div>
+      <div class="card-body">
+        <div class="card-title">Paso Robles Wine Country</div>
+        <div class="card-meta">April 29 – May 3, 2026 &middot; 5 days &middot; Steve &amp; Colleen</div>
+        <p class="card-desc">Central California coast — Hearst Castle, elephant seal rookery, McWay Falls, Sensorio field of light, tide pools, and the tiny town of Harmony.</p>
+        <div class="card-link">Read journal &rarr;</div>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<footer>Steve Padnos</footer>
+
+</body>
+</html>
