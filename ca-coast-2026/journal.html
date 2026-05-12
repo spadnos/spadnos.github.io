@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central California Coast - 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fbf9f8;
+  --surface:#ffffff;
+  --surface-low:#f6f3f2;
+  --surface-card:#f0eded;
+  --text:#1b1c1c;
+  --muted:#434842;
+  --subtle:#747872;
+  --accent:#4f604f;
+  --accent-dim:#687967;
+  --border:#c4c8c0;
+  --border-dim:#e4e2e1;
+  --r:.5rem;
+  --rl:1rem;
+  --rxl:1.5rem;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+/* Sticky header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:var(--surface);
+  border-bottom:1px solid var(--border-dim);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.875rem 48px;gap:1rem;
+}
+.header-back{
+  font-size:.8125rem;font-weight:500;color:var(--subtle);
+  display:flex;align-items:center;gap:.35rem;
+  transition:color .15s;white-space:nowrap;
+}
+.header-back:hover{color:var(--accent);}
+.header-title{
+  font-family:'Literata',Georgia,serif;
+  font-size:1rem;font-weight:500;color:var(--text);
+  letter-spacing:-.01em;text-align:center;
+}
+/* Lightbox */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
+#lb.open{display:flex;}
+#lb img{max-width:92vw;max-height:82vh;border-radius:4px;object-fit:contain;}
+#lb-caption{color:#ccc;font-size:.85rem;margin-top:.75rem;max-width:70ch;text-align:center;font-family:'DM Sans',sans-serif;}
+#lb-close{position:fixed;top:1rem;right:1.25rem;font-size:2rem;color:#fff;cursor:pointer;line-height:1;opacity:.7;}
+#lb-close:hover{opacity:1;}
+#lb-prev,#lb-next{
+  position:fixed;top:50%;transform:translateY(-50%);
+  font-size:2.5rem;color:#fff;cursor:pointer;opacity:.6;
+  background:none;border:none;padding:0 .75rem;
+}
+#lb-prev{left:0;}#lb-next{right:0;}
+#lb-prev:hover,#lb-next:hover{opacity:1;}
+
+/* Hero - Split Column */
+.page-body{max-width:1600px;margin:0 auto;}
+.trip-hero{display:grid;grid-template-columns:1fr 1fr;min-height:60vh;}
+.trip-hero-text{
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:3rem 48px;
+}
+.trip-hero-image{overflow:hidden;background:var(--border-dim);}
+.trip-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.hero-label{font-size:.75rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
+.hero-h2{
+  font-family:'Literata',Georgia,serif;
+  font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.1;
+  letter-spacing:-.02em;color:var(--text);max-width:22ch;
+}
+/* Stats row */
+.stats-row{
+  display:flex;gap:3rem;
+  padding:1.25rem 48px;
+  border-bottom:1px solid var(--border-dim);
+  overflow-x:auto;
+}
+.stat-item{display:flex;flex-direction:column;gap:.1rem;}
+.stat-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);}
+.stat-value{font-family:'Literata',Georgia,serif;font-size:1.25rem;font-weight:500;color:var(--text);}
+/* Main grid */
+.main-grid{
+  display:grid;grid-template-columns:1fr 268px;gap:2.5rem;
+  padding:2.5rem 48px;align-items:start;
+}
+/* Timeline */
+.section-heading{
+  font-family:'Literata',Georgia,serif;
+  font-size:1.25rem;font-weight:500;color:var(--text);
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.625rem;
+}
+.section-heading::before{
+  content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:1px;
+}
+.timeline{position:relative;display:flex;flex-direction:column;gap:1.75rem;}
+.timeline::before{
+  content:'';position:absolute;
+  left:1rem;top:1.5rem;bottom:1.5rem;
+  width:1px;background:var(--accent);opacity:.2;
+}
+.chapter-item{position:relative;padding-left:3rem;}
+.chapter-dot{
+  position:absolute;left:.5rem;top:1.5rem;
+  width:1rem;height:1rem;
+  background:var(--accent-dim);border:3px solid var(--bg);
+  border-radius:50%;z-index:1;
+}
+/* Day card */
+.day-card{
+  background:var(--surface);
+  border:1px solid var(--border-dim);
+  border-radius:var(--rxl);
+  padding:1.5rem;
+  box-shadow:0 2px 16px rgba(79,96,79,.05);
+  transition:box-shadow .2s,border-color .2s;
+}
+.day-card:hover{box-shadow:0 8px 28px rgba(79,96,79,.10);border-color:var(--border);}
+.day-tag{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);}
+.day-card h4{
+  font-family:'Literata',Georgia,serif;
+  font-size:1.25rem;font-weight:500;
+  margin:.25rem 0 .75rem;color:var(--text);
+}
+.day-excerpt{
+  font-size:.9375rem;color:var(--muted);line-height:1.65;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  margin-bottom:.875rem;
+}
+.day-photos{display:grid;grid-template-columns:1fr 1fr;gap:.375rem;margin-bottom:.875rem;}
+.day-photo-wrap{aspect-ratio:4/3;overflow:hidden;border-radius:var(--r);background:var(--surface-card);}
+.day-photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s;}
+.day-card:hover .day-photo-wrap img{transform:scale(1.04);}
+.read-link{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.875rem;font-weight:500;color:var(--accent);
+  transition:gap .15s;
+}
+.day-card:hover .read-link{gap:.55rem;}
+/* Sidebar */
+.sidebar-col{position:sticky;top:57px;display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{
+  background:var(--surface);border:1px solid var(--border-dim);
+  border-radius:var(--rl);overflow:hidden;
+  box-shadow:0 1px 8px rgba(79,96,79,.04);
+}
+.sidebar-card-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.625rem .875rem;
+  border-bottom:1px solid var(--border-dim);
+  font-size:.8125rem;font-weight:600;color:var(--muted);
+  letter-spacing:.02em;
+}
+#map{height:180px;width:100%;}
+.chapter-nav-list{padding:.375rem;display:flex;flex-direction:column;gap:2px;}
+.ch-nav-link{
+  display:flex;align-items:baseline;gap:.5rem;
+  padding:.35rem .625rem;border-radius:var(--r);
+  font-size:.8125rem;color:var(--muted);
+  transition:background .15s,color .15s;
+}
+.ch-nav-link:hover{background:var(--border-dim);color:var(--text);}
+.ch-num{font-weight:600;color:var(--accent);font-size:.75rem;}
+.ch-label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/* Footer */
+.site-footer{
+  padding:1.5rem 48px;
+  border-top:1px solid var(--border-dim);
+  color:var(--subtle);font-size:.8rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="header-back" href="../index.html">&#8592; All Journals</a>
+  <span class="header-title">Central California Coast - 2026</span>
+  <div></div>
+</header>
+
+<div class="page-body">
+<section class="trip-hero" style="grid-template-columns:1fr 1fr">
+  <div class="trip-hero-text">
+    <p class="hero-label">April 26 – May 3, 2026</p>
+    <h2 class="hero-h2">Central California Coast - 2026</h2>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:.5rem;">A week trip centered around San Luis Obispo county including Hearst Castle, Paso Robles, Pismo Beach, and more.</p>
+  </div>
+  <div class="trip-hero-image">
+    <img src='images/20260426_124107_full.jpg' alt="Central California Coast - 2026" loading="eager">
+  </div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-item"><span class="stat-label">Duration</span><span class="stat-value">8 Days</span></div><div class="stat-item"><span class="stat-label">Photos</span><span class="stat-value">35</span></div><div class="stat-item"><span class="stat-label">Destinations</span><span class="stat-value">8 Locations</span></div><div class="stat-item"><span class="stat-label">Travelers</span><span class="stat-value">Rachel, Hazel, Greg, Sunil, Colleen, Steve</span></div>
+</div>
+
+<div class="main-grid">
+  <div class="chapters-col">
+    <h3 class="section-heading">Journey Chapters</h3>
+    <div class="timeline">
+      
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-04-26.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 01 · Apr 26</span>
+      <h4>Sunday, April 26, 2026</h4>
+      <p class="day-excerpt">Midday sun hit the volcanic spires hard as we moved through the west side of the park, tracing Chalone Creek before looping back along the cliffs.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260426_124107_thumb.jpg" alt="" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260426_125401_thumb.jpg" alt="" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-04-27.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 02 · Apr 27</span>
+      <h4>Monday, April 27, 2026</h4>
+      <p class="day-excerpt">Morning light on Live Oak Road before heading south along the coast to San Luis Obispo, where we spent the afternoon exploring the area near Cal Poly.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260427_081302_thumb.jpg" alt="" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260427_131349_thumb.jpg" alt="" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-04-28.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 03 · Apr 28</span>
+      <h4>Tuesday, April 28, 2026</h4>
+      <p class="day-excerpt">Morning light at Morro Bay State Park gave way to an afternoon walk along the coastal bluffs above Los Osos, the estuary glinting below under clear skies.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260428_102130_thumb.jpg" alt="" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260428_102402_thumb.jpg" alt="" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-04-29.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 04 · Apr 29</span>
+      <h4>Wednesday, April 29, 2026</h4>
+      <p class="day-excerpt">Early morning light at Pismo Beach gave way to a midday stop near Avila Beach before returning to the Pismo shore for the afternoon.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260429_064242_thumb.jpg" alt="" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260429_112829_thumb.jpg" alt="" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-04-30.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 05 · Apr 30</span>
+      <h4>Thursday, April 30, 2026</h4>
+      <p class="day-excerpt">Cool coastal air and a quiet pier marked the morning before a stop at one of California's smallest towns in the afternoon.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260430_105058_thumb.jpg" alt="" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260430_111448_thumb.jpg" alt="" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-05-01.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 06 · May 1</span>
+      <h4>Friday, May 1, 2026</h4>
+      <p class="day-excerpt">Morning fog still clung to the hillside as we moved between the guest cottages and main grounds of Hearst Castle, then dropped down to the coast to watch elephant seals on the beach below.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260501_102910_thumb.jpg" alt="" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260501_103431_thumb.jpg" alt="" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-05-02.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 07 · May 2</span>
+      <h4>Saturday, May 2, 2026</h4>
+      <p class="day-excerpt">Fog still clung to the shore at midday before we drove inland to wine country for the evening.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260502_131130_thumb.jpg" alt="" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260502_193058_thumb.jpg" alt="" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-05-03.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 08 · May 3</span>
+      <h4>Sunday, May 3, 2026</h4>
+      <p class="day-excerpt">Cool coastal fog clung to the cliffs as we pulled over along CA-1 in Big Sur on a Sunday afternoon, both shots captured within the same minute.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260503_133938_thumb.jpg" alt="" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260503_133953_thumb.jpg" alt="" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+    </div>
+  </div>
+  <aside class="sidebar-col">
+    <div class="sidebar-card"><div class="sidebar-card-head">Route Map</div><div id="map"></div></div>
+    <div class="sidebar-card"><div class="sidebar-card-head">Jump to Chapter</div><nav class="chapter-nav-list"><a href="day-2026-04-26.html" class="ch-nav-link"><span class="ch-num">01</span><span class="ch-label">Apr 26</span></a><a href="day-2026-04-27.html" class="ch-nav-link"><span class="ch-num">02</span><span class="ch-label">Apr 27</span></a><a href="day-2026-04-28.html" class="ch-nav-link"><span class="ch-num">03</span><span class="ch-label">Apr 28</span></a><a href="day-2026-04-29.html" class="ch-nav-link"><span class="ch-num">04</span><span class="ch-label">Apr 29</span></a><a href="day-2026-04-30.html" class="ch-nav-link"><span class="ch-num">05</span><span class="ch-label">Apr 30</span></a><a href="day-2026-05-01.html" class="ch-nav-link"><span class="ch-num">06</span><span class="ch-label">May 1</span></a><a href="day-2026-05-02.html" class="ch-nav-link"><span class="ch-num">07</span><span class="ch-label">May 2</span></a><a href="day-2026-05-03.html" class="ch-nav-link"><span class="ch-num">08</span><span class="ch-label">May 3</span></a></nav></div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <a class="header-back" href="../index.html">&#8592; All Journals</a>
+  <span>Generated with Photo Journal Creator</span>
+</footer>
+</div>
+
+
+<script>
+(function(){
+  var pins=[{"day_id": "day-2026-04-26", "label": "Sunday, April 26, 2026", "lat": 36.49894, "lon": -121.20274, "color": "#e63946"}, {"day_id": "day-2026-04-27", "label": "Monday, April 27, 2026", "lat": 35.399419, "lon": -120.701619, "color": "#2a9d8f"}, {"day_id": "day-2026-04-28", "label": "Tuesday, April 28, 2026", "lat": 35.297281, "lon": -120.87503, "color": "#e9c46a"}, {"day_id": "day-2026-04-29", "label": "Wednesday, April 29, 2026", "lat": 35.158888, "lon": -120.698286, "color": "#f4a261"}, {"day_id": "day-2026-04-30", "label": "Thursday, April 30, 2026", "lat": 35.484329, "lon": -120.981439, "color": "#264653"}, {"day_id": "day-2026-05-01", "label": "Friday, May 1, 2026", "lat": 35.673845, "lon": -121.212408, "color": "#6d597a"}, {"day_id": "day-2026-05-02", "label": "Saturday, May 2, 2026", "lat": 35.632862, "lon": -120.746039, "color": "#b56576"}, {"day_id": "day-2026-05-03", "label": "Sunday, May 3, 2026", "lat": 36.159624, "lon": -121.671957, "color": "#3d405b"}];
+  if(!pins.length)return;
+  var map=L.map('map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom:18
+  }).addTo(map);
+  pins.forEach(function(p){
+    var m=L.circleMarker([p.lat,p.lon],{radius:8,color:'#fff',weight:2,fillColor:p.color,fillOpacity:.9}).addTo(map);
+    if(p.day_id)m.on('click',function(){window.location.href=p.day_id+'.html';});
+    m.bindTooltip(p.label,{direction:'top',offset:[0,-8]});
+  });
+  var ll=pins.map(function(p){return[p.lat,p.lon]});
+  L.polyline(ll,{color:'#888',weight:2,dashArray:'5,6'}).addTo(map);
+  if(pins.length===1){map.setView([pins[0].lat,pins[0].lon],13);}
+  else{var bb=pins.map(function(p){return[p.lat,p.lon]});map.fitBounds(L.latLngBounds(bb),{padding:[30,30]});}
+})();
+</script>
+</body>
+</html>

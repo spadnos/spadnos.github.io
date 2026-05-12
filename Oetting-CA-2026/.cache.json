@@ -1,0 +1,56 @@
+{
+  "geocode": {
+    "36.6184,-121.9021": "886 Cannery Row, Monterey, CA 93940, USA",
+    "36.6185,-121.902": "886 Cannery Row, Monterey, CA 93940, USA",
+    "36.6176,-121.9016": "Monterey, 866 Cannery Row, Monterey, CA 93940, USA",
+    "37.7698,-122.4663": "55 Music Concourse Dr, San Francisco, CA 94118, USA",
+    "37.7697,-122.4666": "55 Music Concourse Dr, San Francisco, CA 94118, USA",
+    "37.7858,-122.4956": "Lands End Trail Eagles Point, 916 El Camino Del Mar, San Francisco, CA 94121, USA",
+    "37.4587,-122.1078": "Baylands Trail Duck Pond Parking North, 2500 Embarcadero Rd, Palo Alto, CA 94303, USA",
+    "37.4591,-122.1074": "2775 Embarcadero Rd, Palo Alto, CA 94303, USA",
+    "37.2855,-121.9154": "Bagby, CA 95124, USA",
+    "37.169,-122.2226": "5Q9G+HW Boulder Creek, CA, USA",
+    "37.1696,-122.2235": "5Q9G+RH Boulder Creek, CA, USA",
+    "37.1754,-122.2229": "5QGG+5R Boulder Creek, CA, USA",
+    "37.1753,-122.2228": "5QGG+4V Boulder Creek, CA, USA"
+  },
+  "journal": {
+    "2026-03-15": {
+      "hash": "d704eaaae5864d8477a9fb16dca1a081",
+      "text": "Albatross feeding in front of the kelp forest tank set the tone for a slow afternoon along Cannery Row, moving from seabird demonstrations to drifting jellyfish in cobalt-blue tanks.\n\n**Highlights:**\n- [Monterey Bay Aquarium](https://en.wikipedia.org/wiki/Monterey_Bay_Aquarium) \u2014 built on the site of a former sardine cannery, its Kelp Forest exhibit holds a live, 28-foot-tall tank that was among the first in the world to successfully maintain giant kelp\n- [Laysan Albatross](https://en.wikipedia.org/wiki/Laysan_albatross) \u2014 capable of flying millions of miles over a lifetime almost entirely without landing, using dynamic soaring to travel with minimal wingbeats\n- [Pacific Sea Nettle](https://en.wikipedia.org/wiki/Chrysaora_fuscescens) \u2014 lacks a brain or heart, navigating entirely through a simple nerve net distributed across its bell"
+    },
+    "2026-03-16": {
+      "hash": "ab20039aabadf107b322ab4fcd28eede",
+      "text": "Rain-washed light gave way to a clear afternoon as we moved from the enclosed warmth of Golden Gate Park's conservatories to a breezy coastal overlook.\n\n**Highlights:**\n\n- [California Academy of Sciences](https://en.wikipedia.org/wiki/California_Academy_of_Sciences) \u2014 its Osher Rainforest dome houses a four-story living rainforest where free-flying butterflies like the *Heliconius* species share canopy space with tropical birds, all within a building topped by a 2.5-acre living roof\n- [San Francisco Zoo & Gardens / Steinhart Aquarium bird exhibits](https://en.wikipedia.org/wiki/California_Academy_of_Sciences) \u2014 the red-crested turaco's crimson crest pigment, turacin, is unique in nature and actually contains copper\n- [Lands End Trail](https://en.wikipedia.org/wiki/Lands_End,_San_Francisco) \u2014 Eagles Point offers one of the few unobstructed views of the Golden Gate where remnants of three shipwrecks remain visible at low tide just offshore"
+    },
+    "2026-03-19": {
+      "hash": "8f0f916a6c7735112951845f1193f2e8",
+      "text": "Soft light and mudflats set the tone as I walked the Baylands trails mid-morning, scanning grasses and shallows for shorebirds before heading home by late afternoon.\n\n**Highlights:**\n\n- [Palo Alto Baylands Nature Preserve](https://en.wikipedia.org/wiki/Palo Alto_Baylands_Nature_Preserve) \u2014 the largest intact marshland remaining in San Francisco Bay, managed partly through a historic 1960s landfill boundary that now doubles as a levee trail\n- [San Francisco Bay](https://en.wikipedia.org/wiki/San_Francisco_Bay) tidal mudflats \u2014 exposed at low tide, these flats support some of the Pacific Flyway's densest shorebird concentrations, with over 100 species recorded seasonally at this stretch of the South Bay"
+    },
+    "2026-03-20": {
+      "hash": "1ac1a81798982d49dbb52d2ad29f3072",
+      "text": "Blackened redwood snags towered overhead as we walked an interpretive trail through a forest still visibly scarred but vigorously rebounding \u2014 green ferns and shrubs carpeting the floor beneath charred trunks. A butterfly landing on a kid's head and a robin on a bleached snag rounded out the afternoon.\n\n**Highlights:**\n- [Big Basin Redwoods State Park](https://en.wikipedia.org/wiki/Big_Basin_Redwoods_State_Park) \u2014 California's oldest state park, it lost nearly all its old-growth visitor infrastructure in the 2020 CZU Lightning Complex fires yet the coast redwoods themselves largely survived, resprouting from dormant burls\n- [CZU Lightning Complex fires](https://en.wikipedia.org/wiki/CZU_Lightning_Complex_fires) \u2014 ignited by a single August 2020 lightning storm, they burned over 86,000 acres across Santa Cruz and San Mateo counties\n- [American robin](https://en.wikipedia.org/wiki/American_robin) \u2014 one of the few thrushes that actively benefits from post-fire habitat, foraging exposed ground for earthworms displaced by soil disturbance"
+    },
+    "undated": {
+      "hash": "401e36d943fb05db0dfc1667123382fa",
+      "text": "Bright midday sun over a coastal deck brought six of us together for a group shot, then the day wound through coffee stops and casual meals indoors. The mood stayed loose and playful throughout.\n\n**Highlights:**\n\n- [Blue Bottle Coffee](https://en.wikipedia.org/wiki/Blue_Bottle_Coffee) \u2014 founded in Oakland in 2002, the brand became known for single-origin sourcing and a strict 48-hour freshness policy that briefly required customers to drink on-site"
+    }
+  },
+  "collage": {
+    "2026-03-15": {
+      "hash": "02be2327868a7ee53d57aea99df10d02"
+    },
+    "2026-03-16": {
+      "hash": "b0a53f4abc70dbe19c4f0ead90832e19"
+    },
+    "2026-03-19": {
+      "hash": "938f1de1037c57ceaccea244ff80bab2"
+    },
+    "2026-03-20": {
+      "hash": "24e31a35e4cbe74c018d956d238b30b4"
+    },
+    "undated": {
+      "hash": "90d0fc2e5a4e8440a407d8812a450ee1"
+    }
+  }
+}
