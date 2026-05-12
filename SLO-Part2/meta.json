@@ -1,9 +1,16 @@
 {
-  "title": "4380 CA-46 & 53034 CA-1 · May 1–3, 2026",
-  "description": null,
-  "participants": [],
+  "title": "California Central Coast, Part 2",
+  "description": "Exploring the California Central Coast - Spring 2026.",
+  "participants": [
+    "Hazel",
+    "Greg",
+    "Rachel",
+    "Sunil",
+    "Colleen",
+    "Steve"
+  ],
   "date_range": "May 1 – May 3, 2026",
   "start_date": "2026-05-01",
-  "days": 3,
+  "days": 4,
   "cover": "collage_2026-05-01.jpg"
 }

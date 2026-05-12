@@ -4,222 +4,261 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>April Showers, Kirkwood-style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f8f5ef;
+  --bg:#fbf9f8;
   --surface:#ffffff;
-  --text:#2a2318;
-  --muted:#7a6e60;
-  --accent:#8b5e3c;
-  --border:#ddd5c0;
-  --radius:6px;
+  --surface-low:#f6f3f2;
+  --surface-card:#f0eded;
+  --text:#1b1c1c;
+  --muted:#434842;
+  --subtle:#747872;
+  --accent:#4f604f;
+  --accent-dim:#687967;
+  --border:#c4c8c0;
+  --border-dim:#e4e2e1;
+  --r:.5rem;
+  --rl:1rem;
+  --rxl:1.5rem;
 }
-body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;line-height:1.75;}
-a{color:var(--accent);}
-header{
-  max-width:860px;margin:0 auto;padding:3rem 1.5rem 2rem;
-  border-bottom:2px solid var(--border);
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+/* Sticky header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:var(--surface);
+  border-bottom:1px solid var(--border-dim);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.875rem 48px;gap:1rem;
 }
-header h1{font-size:2rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:700;}
-header .subtitle{color:var(--muted);font-size:0.95rem;margin-top:0.4rem;font-family:inherit;}
-header .description{color:var(--text);font-size:1rem;margin-top:0.75rem;max-width:65ch;}
-header .participants{color:var(--muted);font-size:0.875rem;margin-top:0.4rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
-.places{margin-top:1rem;}
-.places-label{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.35rem;}
-.places ul{list-style:none;padding:0;margin:0;}
-.places li{font-size:0.95rem;margin-bottom:0.2rem;}
-/* Page layout */
-#page-body{display:flex;flex-direction:column;}
-/* Sidebar (mobile: full-width map above content) */
-#sidebar{border-bottom:1px solid var(--border);}
-#map{height:280px;width:100%;}
-#map-controls{padding:0.45rem 1.5rem;}
-#toggle-route{
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  font-size:0.8rem;color:var(--muted);background:none;border:1px solid var(--border);
-  border-radius:4px;padding:3px 10px;cursor:pointer;
+.header-back{
+  font-size:.8125rem;font-weight:500;color:var(--subtle);
+  display:flex;align-items:center;gap:.35rem;
+  transition:color .15s;white-space:nowrap;
 }
-#toggle-route:hover{color:var(--text);border-color:var(--muted);}
-#day-nav{display:none;}
-/* Day sections */
-.day{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem;border-bottom:1px solid var(--border);}
-.day-header{margin-bottom:1.5rem;}
-.day-header h2{
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  font-size:1.35rem;font-weight:600;color:var(--text);
-}
-.day-loc{color:var(--muted);font-size:0.9rem;margin-top:0.25rem;}
-.collage{width:100%;border-radius:var(--radius);margin-bottom:1.5rem;display:block;}
-.journal-text{font-size:1.05rem;}
-.journal-text p{margin-bottom:0.75rem;}
-.journal-text ul{margin:0.5rem 0 1rem 1.25rem;}
-.journal-text li{margin-bottom:0.35rem;}
-.journal-text a{color:var(--accent);text-decoration:underline;}
-.photo-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:6px;
-  margin-top:1.5rem;
-}
-.photo-item{cursor:pointer;overflow:hidden;border-radius:var(--radius);background:#e8e0d0;aspect-ratio:4/3;position:relative;}
-.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s;}
-.photo-item:hover img{transform:scale(1.03);}
-.photo-item figcaption{
-  position:absolute;bottom:0;left:0;right:0;
-  background:rgba(0,0,0,.45);color:#fff;
-  font-size:0.72rem;padding:3px 6px;
-  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+.header-back:hover{color:var(--accent);}
+.header-title{
+  font-family:'Literata',Georgia,serif;
+  font-size:1rem;font-weight:500;color:var(--text);
+  letter-spacing:-.01em;text-align:center;
 }
 /* Lightbox */
 #lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
 #lb.open{display:flex;}
 #lb img{max-width:92vw;max-height:82vh;border-radius:4px;object-fit:contain;}
-#lb-caption{color:#ccc;font-size:0.85rem;margin-top:0.75rem;max-width:70ch;text-align:center;font-family:-apple-system,BlinkMacSystemFont,sans-serif;}
+#lb-caption{color:#ccc;font-size:.85rem;margin-top:.75rem;max-width:70ch;text-align:center;font-family:'DM Sans',sans-serif;}
 #lb-close{position:fixed;top:1rem;right:1.25rem;font-size:2rem;color:#fff;cursor:pointer;line-height:1;opacity:.7;}
 #lb-close:hover{opacity:1;}
 #lb-prev,#lb-next{
   position:fixed;top:50%;transform:translateY(-50%);
   font-size:2.5rem;color:#fff;cursor:pointer;opacity:.6;
-  background:none;border:none;padding:0 0.75rem;
+  background:none;border:none;padding:0 .75rem;
 }
 #lb-prev{left:0;}#lb-next{right:0;}
 #lb-prev:hover,#lb-next:hover{opacity:1;}
-footer{max-width:860px;margin:0 auto;padding:2rem 1.5rem;color:var(--muted);font-size:0.8rem;}
-/* Desktop sidebar layout */
-@media(min-width:960px){
-  #page-body{
-    flex-direction:row;
-    align-items:flex-start;
-    padding:0 1.5rem;
-  }
-  #main-content{flex:1;min-width:0;}
-  #sidebar{
-    width:240px;
-    flex-shrink:0;
-    order:2;
-    position:sticky;
-    top:0;
-    max-height:100vh;
-    overflow-y:auto;
-    border-bottom:none;
-    border-left:1px solid var(--border);
-    padding:1.5rem 0 2rem 1.25rem;
-    margin-left:1.5rem;
-  }
-  #map{height:200px;border-radius:var(--radius);}
-  #map-controls{padding:0.4rem 0 0.5rem;}
-  #day-nav{
-    display:flex;flex-direction:column;gap:2px;
-    margin-top:0.75rem;
-  }
-  .nav-day{
-    display:flex;align-items:baseline;gap:0.35rem;
-    padding:0.35rem 0.5rem;
-    text-decoration:none;color:var(--text);
-    border-radius:var(--radius);
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    font-size:0.875rem;
-    transition:background .15s;
-  }
-  .nav-day:hover{background:var(--border);color:var(--text);}
-  .nav-short{font-weight:600;}
-  .nav-sep,.nav-weekday{color:var(--muted);font-size:0.8rem;}
-  header{max-width:none;padding-left:1.5rem;}
-  .day{margin:0;max-width:none;padding:2.5rem 1.5rem 2.5rem 0;}
-  footer{max-width:none;padding:2rem 0;}
+
+/* Hero */
+.trip-hero{position:relative;height:60vh;min-height:360px;overflow:hidden;background:#000;}
+.trip-hero img{width:100%;height:100%;object-fit:contain;display:block;}
+.trip-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 50%,transparent 70%);
+  display:flex;align-items:flex-end;padding:3rem 48px;
 }
+.hero-label{font-size:.75rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:.5rem;text-shadow:0 1px 4px rgba(0,0,0,.9);}
+.hero-h2{
+  font-family:'Literata',Georgia,serif;
+  font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.1;
+  letter-spacing:-.02em;color:#fff;max-width:22ch;
+  text-shadow:0 2px 8px rgba(0,0,0,.9),0 1px 2px rgba(0,0,0,.7);
+}
+/* Stats row */
+.stats-row{
+  display:flex;gap:3rem;
+  padding:1.25rem 48px;
+  border-bottom:1px solid var(--border-dim);
+  overflow-x:auto;
+}
+.stat-item{display:flex;flex-direction:column;gap:.1rem;}
+.stat-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);}
+.stat-value{font-family:'Literata',Georgia,serif;font-size:1.25rem;font-weight:500;color:var(--text);}
+/* Main grid */
+.main-grid{
+  display:grid;grid-template-columns:1fr 268px;gap:2.5rem;
+  padding:2.5rem 48px;align-items:start;
+}
+/* Timeline */
+.section-heading{
+  font-family:'Literata',Georgia,serif;
+  font-size:1.25rem;font-weight:500;color:var(--text);
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.625rem;
+}
+.section-heading::before{
+  content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:1px;
+}
+.timeline{position:relative;display:flex;flex-direction:column;gap:1.75rem;}
+.timeline::before{
+  content:'';position:absolute;
+  left:1rem;top:1.5rem;bottom:1.5rem;
+  width:1px;background:var(--accent);opacity:.2;
+}
+.chapter-item{position:relative;padding-left:3rem;}
+.chapter-dot{
+  position:absolute;left:.5rem;top:1.5rem;
+  width:1rem;height:1rem;
+  background:var(--accent-dim);border:3px solid var(--bg);
+  border-radius:50%;z-index:1;
+}
+/* Day card */
+.day-card{
+  background:var(--surface);
+  border:1px solid var(--border-dim);
+  border-radius:var(--rxl);
+  padding:1.5rem;
+  box-shadow:0 2px 16px rgba(79,96,79,.05);
+  transition:box-shadow .2s,border-color .2s;
+}
+.day-card:hover{box-shadow:0 8px 28px rgba(79,96,79,.10);border-color:var(--border);}
+.day-tag{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);}
+.day-card h4{
+  font-family:'Literata',Georgia,serif;
+  font-size:1.25rem;font-weight:500;
+  margin:.25rem 0 .75rem;color:var(--text);
+}
+.day-excerpt{
+  font-size:.9375rem;color:var(--muted);line-height:1.65;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  margin-bottom:.875rem;
+}
+.day-photos{display:grid;grid-template-columns:1fr 1fr;gap:.375rem;margin-bottom:.875rem;}
+.day-photo-wrap{aspect-ratio:4/3;overflow:hidden;border-radius:var(--r);background:var(--surface-card);}
+.day-photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s;}
+.day-card:hover .day-photo-wrap img{transform:scale(1.04);}
+.read-link{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.875rem;font-weight:500;color:var(--accent);
+  transition:gap .15s;
+}
+.day-card:hover .read-link{gap:.55rem;}
+/* Sidebar */
+.sidebar-col{position:sticky;top:57px;display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{
+  background:var(--surface);border:1px solid var(--border-dim);
+  border-radius:var(--rl);overflow:hidden;
+  box-shadow:0 1px 8px rgba(79,96,79,.04);
+}
+.sidebar-card-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.625rem .875rem;
+  border-bottom:1px solid var(--border-dim);
+  font-size:.8125rem;font-weight:600;color:var(--muted);
+  letter-spacing:.02em;
+}
+#map{height:180px;width:100%;}
+.chapter-nav-list{padding:.375rem;display:flex;flex-direction:column;gap:2px;}
+.ch-nav-link{
+  display:flex;align-items:baseline;gap:.5rem;
+  padding:.35rem .625rem;border-radius:var(--r);
+  font-size:.8125rem;color:var(--muted);
+  transition:background .15s,color .15s;
+}
+.ch-nav-link:hover{background:var(--border-dim);color:var(--text);}
+.ch-num{font-weight:600;color:var(--accent);font-size:.75rem;}
+.ch-label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/* Footer */
+.site-footer{
+  padding:1.5rem 48px;
+  border-top:1px solid var(--border-dim);
+  color:var(--subtle);font-size:.8rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+
 </style>
 </head>
 <body>
-<header>
-  <h1>April Showers, Kirkwood-style</h1>
-  <p class="subtitle">3 days · 4 photos</p>
-  <p class='description'>Snow in April is not uncommon in Kirkwood, but this year we had a couple of unusually large storms for that time of year.</p>
-  <p class='participants'>With: Colleen, Steve</p>
-  <div class="places"><p class="places-label">Where we went</p><ul><li><a href="https://en.wikipedia.org/wiki/Kirkwood_Mountain_Resort" target="_blank" rel="noopener">Kirkwood Mountain Resort</a> — situated at 7,800 feet base elevation in the Sierra Nevada, Kirkwood is known for receiving some of the deepest snowpack in the Lake Tahoe region, making a true powder day in mid-April unusually lucky but not unheard of in a strong snow year.</li></ul></div>
+<header class="site-header">
+  <a class="header-back" href="../index.html">&#8592; All Journals</a>
+  <span class="header-title">April Showers, Kirkwood-style</span>
+  <div></div>
 </header>
-<div id="page-body">
-  <aside id="sidebar">
-    <div id="map"></div>
-    <nav id="day-nav"><a href="#day-2026-04-12" class="nav-day"><span class="nav-short">12 Apr</span><span class="nav-sep">·</span><span class="nav-weekday">Sunday</span></a>
-<a href="#day-2026-04-13" class="nav-day"><span class="nav-short">13 Apr</span><span class="nav-sep">·</span><span class="nav-weekday">Monday</span></a>
-<a href="#day-2026-04-18" class="nav-day"><span class="nav-short">18 Apr</span><span class="nav-sep">·</span><span class="nav-weekday">Saturday</span></a></nav>
+
+<section class="trip-hero">
+  <img src='images/20260412_092010_full.jpg' alt="April Showers, Kirkwood-style" loading="eager">
+  <div class="trip-hero-overlay">
+    <div>
+      <p class="hero-label">April 12 – April 18, 2026</p>
+      <h2 class="hero-h2">April Showers, Kirkwood-style</h2>
+      <p style="color:var(--muted);font-size:.9rem;margin-top:.5rem;">Snow in April is not uncommon in Kirkwood, but this year we had a couple of unusually large storms for that time of year.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-item"><span class="stat-label">Duration</span><span class="stat-value">3 Days</span></div><div class="stat-item"><span class="stat-label">Photos</span><span class="stat-value">4</span></div><div class="stat-item"><span class="stat-label">Location</span><span class="stat-value">Kirkwood, CA</span></div><div class="stat-item"><span class="stat-label">Travelers</span><span class="stat-value">Colleen, Steve</span></div>
+</div>
+
+<div class="main-grid">
+  <div class="chapters-col">
+    <h3 class="section-heading">Journey Chapters</h3>
+    <div class="timeline">
+      
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-04-12.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 01 · Apr 12</span>
+      <h4>Sunday, April 12, 2026</h4>
+      <p class="day-excerpt">Fresh powder blanketed the runs all morning as Colleen skied untracked snow through an active April storm, visibility dropping further by early afternoon.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260412_092010_thumb.jpg" alt="Skier in Navy Rab Jacket on Snowy Slope" loading="lazy"></div><div class="day-photo-wrap"><img src="images/20260412_130640_thumb.jpg" alt="Heavy Snowstorm in Conifer Forest Hillside" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-04-13.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 02 · Apr 13</span>
+      <h4>Monday, April 13, 2026</h4>
+      <p class="day-excerpt">A midday summit selfie at Kirkwood captured the resort village below and a pink-clad skier carving the slope behind — clear skies, cumulus clouds, classic Sierra spring conditions.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260413_121724_thumb.jpg" alt="Skier Selfie with Snowy Mountain Panorama" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+<div class="chapter-item">
+  <div class="chapter-dot"></div>
+  <a href="day-2026-04-18.html" class="day-card-link" style="display:block;color:inherit;text-decoration:none;">
+    <article class="day-card">
+      <span class="day-tag">Day 03 · Apr 18</span>
+      <h4>Saturday, April 18, 2026</h4>
+      <p class="day-excerpt">Clear blue skies and firm spring snow greeted us as Colleen clicked in for a final day of laps on the expert terrain off Chair 6.</p>
+      <div class="day-photos"><div class="day-photo-wrap"><img src="images/20260418_095144_thumb.jpg" alt="Skier at Mountaintop on Sunny Day" loading="lazy"></div></div>
+      <span class="read-link">Read chapter &#8594;</span>
+    </article>
+  </a>
+</div>
+    </div>
+  </div>
+  <aside class="sidebar-col">
+    <div class="sidebar-card"><div class="sidebar-card-head">Route Map</div><div id="map"></div></div>
+    <div class="sidebar-card"><div class="sidebar-card-head">Jump to Chapter</div><nav class="chapter-nav-list"><a href="day-2026-04-12.html" class="ch-nav-link"><span class="ch-num">01</span><span class="ch-label">Apr 12</span></a><a href="day-2026-04-13.html" class="ch-nav-link"><span class="ch-num">02</span><span class="ch-label">Apr 13</span></a><a href="day-2026-04-18.html" class="ch-nav-link"><span class="ch-num">03</span><span class="ch-label">Apr 18</span></a></nav></div>
   </aside>
-  <main id="main-content">
-    
-<section class="day" id="day-2026-04-12">
-  <div class="day-header">
-    <h2>Sunday, April 12, 2026</h2>
-    
-  </div>
-  <img class="collage" src="collage_2026-04-12.jpg" alt="Day collage">
-  <div class="journal-text"><p>Fresh powder blanketed the runs all morning as Colleen skied untracked snow through an active April storm, visibility dropping further by early afternoon.</p></div>
-  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(0)"><img src="images/20260412_092010_thumb.jpg" alt="20260412_092010.jpg" loading="lazy"><figcaption>Skier in Navy Rab Jacket on Snowy Slope</figcaption></figure><div class="lb-data" data-src="images/20260412_092010_full.jpg" data-caption="Skier in Navy Rab Jacket on Snowy Slope" style="display:none"></div>
-<figure class="photo-item" onclick="openLightbox(1)"><img src="images/20260412_130640_thumb.jpg" alt="20260412_130640.jpg" loading="lazy"><figcaption>Heavy Snowstorm in Conifer Forest Hillside</figcaption></figure><div class="lb-data" data-src="images/20260412_130640_full.jpg" data-caption="Heavy Snowstorm in Conifer Forest Hillside" style="display:none"></div></div>
-</section>
-
-<section class="day" id="day-2026-04-13">
-  <div class="day-header">
-    <h2>Monday, April 13, 2026</h2>
-    
-  </div>
-  <img class="collage" src="collage_2026-04-13.jpg" alt="Day collage">
-  <div class="journal-text"><p>A midday summit selfie at Kirkwood captured the resort village below and a pink-clad skier carving the slope behind — clear skies, cumulus clouds, classic Sierra spring conditions.</p></div>
-  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(2)"><img src="images/20260413_121724_thumb.jpg" alt="20260413_121724.jpg" loading="lazy"><figcaption>Skier Selfie with Snowy Mountain Panorama</figcaption></figure><div class="lb-data" data-src="images/20260413_121724_full.jpg" data-caption="Skier Selfie with Snowy Mountain Panorama" style="display:none"></div></div>
-</section>
-
-<section class="day" id="day-2026-04-18">
-  <div class="day-header">
-    <h2>Saturday, April 18, 2026</h2>
-    
-  </div>
-  <img class="collage" src="collage_2026-04-18.jpg" alt="Day collage">
-  <div class="journal-text"><p>Clear blue skies and firm spring snow greeted us as Colleen clicked in for a final day of laps on the expert terrain off Chair 6.</p></div>
-  <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260418_095144_thumb.jpg" alt="20260418_095144.jpg" loading="lazy"><figcaption>Skier at Mountaintop on Sunny Day</figcaption></figure><div class="lb-data" data-src="images/20260418_095144_full.jpg" data-caption="Skier at Mountaintop on Sunny Day" style="display:none"></div></div>
-</section>
-  </main>
 </div>
 
-<footer>Generated with Photo Journal Creator</footer>
+<footer class="site-footer">
+  <a class="header-back" href="../index.html">&#8592; All Journals</a>
+  <span>Generated with Photo Journal Creator</span>
+</footer>
 
-<!-- Lightbox overlay -->
-<div id="lb" role="dialog" aria-modal="true">
-  <span id="lb-close" onclick="closeLightbox()" title="Close">&times;</span>
-  <button id="lb-prev" onclick="lbNav(-1)" aria-label="Previous">&#8592;</button>
-  <img id="lb-img" src="" alt="">
-  <p id="lb-caption"></p>
-  <button id="lb-next" onclick="lbNav(1)" aria-label="Next">&#8594;</button>
-</div>
-
-<script>
-var lbData=(function(){
-  var nodes=document.querySelectorAll('.lb-data');
-  return Array.from(nodes).map(function(n){return{src:n.dataset.src,caption:n.dataset.caption}});
-})();
-var lbIdx=0;
-function openLightbox(i){lbIdx=i;_lbShow();}
-function closeLightbox(){document.getElementById('lb').classList.remove('open');}
-function lbNav(d){lbIdx=(lbIdx+d+lbData.length)%lbData.length;_lbShow();}
-function _lbShow(){
-  var d=lbData[lbIdx];
-  document.getElementById('lb-img').src=d.src;
-  document.getElementById('lb-caption').textContent=d.caption;
-  document.getElementById('lb').classList.add('open');
-}
-document.addEventListener('keydown',function(e){
-  var lb=document.getElementById('lb');
-  if(!lb.classList.contains('open'))return;
-  if(e.key==='Escape')closeLightbox();
-  if(e.key==='ArrowLeft')lbNav(-1);
-  if(e.key==='ArrowRight')lbNav(1);
-});
-document.getElementById('lb').addEventListener('click',function(e){
-  if(e.target===this)closeLightbox();
-});
-</script>
 
 <script>
 (function(){
@@ -231,24 +270,12 @@ document.getElementById('lb').addEventListener('click',function(e){
     maxZoom:18
   }).addTo(map);
   pins.forEach(function(p){
-    var m=L.circleMarker([p.lat,p.lon],{
-      radius:9,color:'#fff',weight:2,fillColor:p.color,fillOpacity:0.9
-    }).addTo(map);
-    if(p.day_id){
-      m.on('click',function(){
-        var el=document.getElementById(p.day_id);
-        if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
-      });
-    }
+    var m=L.circleMarker([p.lat,p.lon],{radius:8,color:'#fff',weight:2,fillColor:p.color,fillOpacity:.9}).addTo(map);
+    if(p.day_id)m.on('click',function(){var el=document.getElementById(p.day_id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});
     m.bindTooltip(p.label,{direction:'top',offset:[0,-8]});
   });
-
-  if(pins.length===1){
-    map.setView([pins[0].lat,pins[0].lon],13);
-  }else{
-    var bb=pins.map(function(p){return[p.lat,p.lon];});
-    map.fitBounds(L.latLngBounds(bb),{padding:[40,40]});
-  }
+  if(pins.length===1){map.setView([pins[0].lat,pins[0].lon],13);}
+  else{var bb=pins.map(function(p){return[p.lat,p.lon]});map.fitBounds(L.latLngBounds(bb),{padding:[30,30]});}
 })();
 </script>
 </body>
