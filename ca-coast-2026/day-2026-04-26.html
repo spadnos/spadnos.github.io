@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,26 +234,28 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 01 · April 26, 2026</span>
       <h1 class="mem-title">Sunday, April 26, 2026</h1>
+      
     </div>
   </div>
 </section>
 
 <section class="meta-bar">
-  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">FQVW+X2 Pinnacles, CA, USA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">April 26, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
+  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">Pinnacles</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">April 26, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
 </section>
 
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Midday sun hit the volcanic spires hard as we moved through the west side of the park, tracing Chalone Creek before looping back along the cliffs.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Pinnacles_National_Park" target="_blank" rel="noopener">Pinnacles National Park</a> — formed from the remnants of an ancient volcano that migrated ~200 miles north along the San Andreas Fault; one of the smallest U.S. national parks yet a critical recovery site for the California condor</li><li><a href="https://en.wikipedia.org/wiki/Pinnacles_National_Park#Hiking" target="_blank" rel="noopener">Balconies Cliffs Trail</a> — winds beneath dramatic rhyolite talus caves where boulders wedged between canyon walls create natural tunnels used by roosting Townsend's big-eared bats</li></ul>
+      <p>Overcast skies softened the volcanic rock into deep reds and greys as I hiked through the gorges and along the cliffs of Pinnacles on a quiet Sunday afternoon.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Pinnacles_National_Park" target="_blank" rel="noopener">Pinnacles National Park</a> — formed from the remnants of an ancient volcano that migrated ~195 miles from its origin via the San Andreas Fault; one of the smallest U.S. national parks yet hosts one of North America's largest California condor reintroduction programs.</li><li><a href="https://en.wikipedia.org/wiki/Pinnacles_National_Park#Recreation" target="_blank" rel="noopener">Balconies Cliffs Trail</a> — a west-side route threading beneath talus caves formed not by erosion but by massive boulders wedged between canyon walls, creating passages through complete darkness.</li></ul>
     </div>
-    <div class="pull-quote"><blockquote>"Midday sun hit the volcanic spires hard as we moved through the west side of the park, tracing Chalone Creek before looping back along the cliffs."</blockquote></div>
+    
+    <div class="pull-quote"><blockquote>"Overcast skies softened the volcanic rock into deep reds and greys as I hiked through the gorges and along the cliffs of Pinnacles on a quiet Sunday afternoon."</blockquote></div>
     <div class="featured-collage"><img src="collage_2026-04-26.jpg" alt="Day collage" loading="lazy"></div>
-    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260426_135220_thumb.jpg" alt="20260426_135220.jpg" loading="lazy"><figcaption>1:52 PM</figcaption></figure><div class="lb-data" data-src="images/20260426_135220_full.jpg" data-caption="" style="display:none"></div></div>
+    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260426_135220_thumb.jpg" alt="20260426_135220.jpg" loading="lazy"><figcaption>Overcast View of Pinnacles National Park</figcaption></figure><div class="lb-data" data-src="images/20260426_135220_full.jpg" data-caption="Overcast View of Pinnacles National Park" style="display:none"></div></div>
   </div>
   <aside class="photos-col">
     <div class="polaroid-cluster">
-      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260426_124107_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260426_124107_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260426_125401_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260426_125401_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260426_133858_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260426_133858_full.jpg" data-caption="" style="display:none"></div>
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260426_124107_thumb.jpg" alt="Rugged Rock Formations at Pinnacles Nati"><p class=polaroid-cap>Rugged Rock Formations at Pinnacles Nati</p></div><div class="lb-data" data-src="images/20260426_124107_full.jpg" data-caption="Rugged Rock Formations at Pinnacles Nati" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260426_125401_thumb.jpg" alt="Tall Red Rock Wall and Green Trees Again"><p class=polaroid-cap>Tall Red Rock Wall and Green Trees Again</p></div><div class="lb-data" data-src="images/20260426_125401_full.jpg" data-caption="Tall Red Rock Wall and Green Trees Again" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260426_133858_thumb.jpg" alt="Rugged Spires and Forest in Pinnacles Na"><p class=polaroid-cap>Rugged Spires and Forest in Pinnacles Na</p></div><div class="lb-data" data-src="images/20260426_133858_full.jpg" data-caption="Rugged Spires and Forest in Pinnacles Na" style="display:none"></div>
     </div>
   </aside>
 </div>

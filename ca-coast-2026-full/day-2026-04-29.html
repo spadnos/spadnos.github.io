@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wednesday, April 29, 2026 · California Central Coast - 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fbf9f8;
+  --surface:#ffffff;
+  --surface-low:#f6f3f2;
+  --surface-card:#f0eded;
+  --text:#1b1c1c;
+  --muted:#434842;
+  --subtle:#747872;
+  --accent:#4f604f;
+  --accent-dim:#687967;
+  --border:#c4c8c0;
+  --border-dim:#e4e2e1;
+  --r:.5rem;
+  --rl:1rem;
+  --rxl:1.5rem;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+/* Sticky header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:var(--surface);
+  border-bottom:1px solid var(--border-dim);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.875rem 48px;gap:1rem;
+}
+.header-back{
+  font-size:.8125rem;font-weight:500;color:var(--subtle);
+  display:flex;align-items:center;gap:.35rem;
+  transition:color .15s;white-space:nowrap;
+}
+.header-back:hover{color:var(--accent);}
+.header-title{
+  font-family:'Literata',Georgia,serif;
+  font-size:1rem;font-weight:500;color:var(--text);
+  letter-spacing:-.01em;text-align:center;
+}
+/* Lightbox */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
+#lb.open{display:flex;}
+#lb img{max-width:92vw;max-height:82vh;border-radius:4px;object-fit:contain;}
+#lb-caption{color:#ccc;font-size:.85rem;margin-top:.75rem;max-width:70ch;text-align:center;font-family:'DM Sans',sans-serif;}
+#lb-close{position:fixed;top:1rem;right:1.25rem;font-size:2rem;color:#fff;cursor:pointer;line-height:1;opacity:.7;}
+#lb-close:hover{opacity:1;}
+#lb-prev,#lb-next{
+  position:fixed;top:50%;transform:translateY(-50%);
+  font-size:2.5rem;color:#fff;cursor:pointer;opacity:.6;
+  background:none;border:none;padding:0 .75rem;
+}
+#lb-prev{left:0;}#lb-next{right:0;}
+#lb-prev:hover,#lb-next:hover{opacity:1;}
+
+/* Hero */
+.mem-hero{position:relative;height:65vh;min-height:400px;overflow:hidden;background:#000;}
+.mem-hero img{width:100%;height:100%;object-fit:contain;display:block;}
+.mem-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 50%,transparent 70%);
+  display:flex;align-items:flex-end;padding:2.5rem 48px;
+}
+.mem-day-badge{
+  font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);margin-bottom:.5rem;display:block;
+  text-shadow:0 1px 4px rgba(0,0,0,.9);
+}
+.mem-title{
+  font-family:'Literata',Georgia,serif;
+  font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:600;
+  line-height:1.1;letter-spacing:-.02em;color:#fff;max-width:28ch;
+  text-shadow:0 2px 8px rgba(0,0,0,.9),0 1px 2px rgba(0,0,0,.7);
+}
+/* Metadata bar */
+.meta-bar{
+  display:flex;flex-wrap:wrap;gap:2rem;
+  padding:.875rem 48px;
+  border-bottom:1px solid var(--border-dim);
+  background:var(--surface);
+}
+.meta-item{display:flex;align-items:center;gap:.5rem;}
+.meta-icon{
+  width:1.5rem;height:1.5rem;background:var(--surface-low);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.875rem;color:var(--accent);
+  flex-shrink:0;
+}
+.meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
+.meta-val{font-size:.9rem;font-weight:500;color:var(--text);}
+/* Content grid */
+.content-grid{
+  display:grid;grid-template-columns:1fr 340px;gap:2.5rem;
+  padding:2.5rem 48px;align-items:start;
+}
+/* Narrative */
+.narrative-col{}
+.journal-body{
+  font-family:'Literata',Georgia,serif;
+  font-size:1.0625rem;line-height:1.85;color:var(--text);
+  margin-bottom:1.5rem;
+}
+.journal-body p{margin-bottom:.875rem;}
+.journal-body ul{margin:.5rem 0 .875rem 1.5rem;}
+.journal-body li{margin-bottom:.3rem;}
+.journal-body a{color:var(--accent);text-decoration:underline;}
+.journal-body strong{font-weight:600;}
+.pull-quote{
+  border-left:3px solid var(--accent);
+  padding:.75rem 1.25rem;
+  margin:1.5rem 0;
+  background:var(--surface-low);
+  border-radius:0 var(--r) var(--r) 0;
+}
+.pull-quote blockquote{
+  font-family:'Literata',Georgia,serif;
+  font-size:1.1875rem;font-style:italic;line-height:1.55;
+  color:var(--text);
+}
+.featured-collage{
+  width:100%;border-radius:var(--rl);
+  overflow:hidden;margin:1.5rem 0;
+  box-shadow:0 4px 24px rgba(79,96,79,.1);
+}
+.featured-collage img{width:100%;display:block;}
+.photo-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:.375rem;margin-top:1.5rem;
+}
+.photo-item{cursor:pointer;overflow:hidden;border-radius:var(--r);background:var(--surface-card);aspect-ratio:4/3;position:relative;}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s;}
+.photo-item:hover img{transform:scale(1.04);}
+.photo-item figcaption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(0,0,0,.42);color:#fff;
+  font-size:.7rem;padding:3px 6px;font-family:'DM Sans',sans-serif;
+}
+/* Photos sidebar */
+.photos-col{position:sticky;top:57px;}
+.polaroid-cluster{position:relative;height:420px;margin-bottom:1.5rem;}
+.polaroid{
+  position:absolute;background:#fff;
+  padding:.5rem .5rem 2rem;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  cursor:pointer;transition:z-index .0s,box-shadow .2s;
+}
+.polaroid:hover{box-shadow:0 12px 32px rgba(0,0,0,.18);z-index:10;}
+.polaroid img{width:100%;height:100%;object-fit:cover;display:block;}
+.polaroid-cap{
+  font-family:'Literata',Georgia,serif;
+  font-size:.8125rem;font-style:italic;
+  color:var(--muted);text-align:center;margin-top:.25rem;
+  line-height:1.3;
+}
+/* Chapter navigation */
+.chapter-nav-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.5rem 48px;
+  border-top:1px solid var(--border-dim);
+  border-bottom:1px solid var(--border-dim);
+  margin-top:2rem;
+}
+.chapter-nav-link{
+  display:flex;align-items:center;gap:.875rem;
+  transition:opacity .15s;
+}
+.chapter-nav-link:hover{opacity:.75;}
+.nav-arrow{
+  width:2.5rem;height:2.5rem;border-radius:50%;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.125rem;color:var(--muted);
+  flex-shrink:0;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.chapter-nav-link:hover .nav-arrow{background:var(--accent);border-color:var(--accent);color:#fff;}
+.nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
+.nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
+.chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
+/* Footer */
+.mem-footer{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.25rem 48px;
+  color:var(--subtle);font-size:.8rem;
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="header-back" href="journal.html">&#8592; California Central Coast - 2026</a>
+  <span class="header-title">Day 04 · Apr 29, 2026</span>
+  <div></div>
+</header>
+
+<section class="mem-hero">
+  <img src='images/20260429_064242_full.jpg' alt="Wednesday, April 29, 2026" loading="eager">
+  <div class="mem-hero-overlay">
+    <div>
+      <span class="mem-day-badge">Day 04 · April 29, 2026</span>
+      <h1 class="mem-title">Wednesday, April 29, 2026</h1>
+      
+    </div>
+  </div>
+</section>
+
+<section class="meta-bar">
+  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">Pismo Beach, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">April 29, 2026</p></div></div><div class="meta-item"><div class="meta-icon">📷</div><div><p class="meta-label">Photos</p><p class="meta-val">19</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Hazel, Greg, Rachel, Sunil, Colleen, Steve</p></div></div>
+</section>
+
+<div class="content-grid">
+  <div class="narrative-col">
+    <div class="journal-body">
+      <p>Early light brought two wild cottontails foraging on the pavement outside our lodging before we set out on bikes along the coast, stopping at a pier, sea stacks, and tide pools through a long, sunny afternoon.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Pismo_Beach" target="_blank" rel="noopener">Pismo Beach</a> — one of California's last open beaches where vehicles can legally drive on the sand; also historically the center of the Pismo clam harvesting industry</li><li><a href="https://en.wikipedia.org/wiki/Dinosaur_Caves_Park" target="_blank" rel="noopener">Dinosaur Caves Park</a> — named for a now-demolished 1930s roadside attraction featuring a concrete dinosaur that once doubled as a tourist gift shop above its sea caves</li><li><a href="https://en.wikipedia.org/wiki/Black_oystercatcher" target="_blank" rel="noopener">Black Oystercatcher</a> — uses its laterally flattened bill to pry open mussels and limpets; its entire global population is estimated at fewer than 11,000 birds</li></ul>
+    </div>
+    
+    
+    <div class="featured-collage"><img src="collage_2026-04-29.jpg" alt="Day collage" loading="lazy"></div>
+    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/DSCN5231 (Medium)_thumb.jpg" alt="DSCN5231 (Medium).JPG" loading="lazy"><figcaption>Coastal Archway and Rocky Cliffs</figcaption></figure><div class="lb-data" data-src="images/DSCN5231 (Medium)_full.jpg" data-caption="Coastal Archway and Rocky Cliffs" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(4)"><img src="images/PXL_20260429_175107371-EDIT (Medium)_thumb.jpg" alt="PXL_20260429_175107371-EDIT (Medium).jpg" loading="lazy"><figcaption>Scenic Hillside Coastal Town and Ocean Vista</figcaption></figure><div class="lb-data" data-src="images/PXL_20260429_175107371-EDIT (Medium)_full.jpg" data-caption="Scenic Hillside Coastal Town and Ocean Vista" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(5)"><img src="images/Avila (Medium)_thumb.jpg" alt="Avila (Medium).jpg" loading="lazy"><figcaption>Cyclist with bubbles outside ice cream shop</figcaption></figure><div class="lb-data" data-src="images/Avila (Medium)_full.jpg" data-caption="Cyclist with bubbles outside ice cream shop" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(6)"><img src="images/brown_pelican (Medium)_thumb.jpg" alt="brown_pelican (Medium).JPG" loading="lazy"><figcaption>Brown Pelican with Leg Band in Green Water</figcaption></figure><div class="lb-data" data-src="images/brown_pelican (Medium)_full.jpg" data-caption="Brown Pelican with Leg Band in Green Water" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(7)"><img src="images/20260429_112829_thumb.jpg" alt="20260429_112829.jpg" loading="lazy"><figcaption>Fishing Boats and Rocky Islands off San Luis Obispo</figcaption></figure><div class="lb-data" data-src="images/20260429_112829_full.jpg" data-caption="Fishing Boats and Rocky Islands off San Luis Obispo" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(8)"><img src="images/PXL_20260429_182843917 (Medium)_thumb.jpg" alt="PXL_20260429_182843917 (Medium).jpg" loading="lazy"><figcaption>Bicycles on a Sunny Ocean Pier</figcaption></figure><div class="lb-data" data-src="images/PXL_20260429_182843917 (Medium)_full.jpg" data-caption="Bicycles on a Sunny Ocean Pier" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(9)"><img src="images/20260429_112852_thumb.jpg" alt="20260429_112852.jpg" loading="lazy"><figcaption>Woman on e-bike on pier overlooking ocean</figcaption></figure><div class="lb-data" data-src="images/20260429_112852_full.jpg" data-caption="Woman on e-bike on pier overlooking ocean" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(10)"><img src="images/PXL_20260429_183144290 (Medium)_thumb.jpg" alt="PXL_20260429_183144290 (Medium).jpg" loading="lazy"><figcaption>Warning Sign: No Smoking on Wooden Pier</figcaption></figure><div class="lb-data" data-src="images/PXL_20260429_183144290 (Medium)_full.jpg" data-caption="Warning Sign: No Smoking on Wooden Pier" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(11)"><img src="images/PXL_20260429_185923194 (Medium)_thumb.jpg" alt="PXL_20260429_185923194 (Medium).jpg" loading="lazy"><figcaption>Coastal Biking Path Overlooking Ocean</figcaption></figure><div class="lb-data" data-src="images/PXL_20260429_185923194 (Medium)_full.jpg" data-caption="Coastal Biking Path Overlooking Ocean" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(12)"><img src="images/20260429_140110_thumb.jpg" alt="20260429_140110.jpg" loading="lazy"><figcaption>Natural Rock Archway at Pismo Beach</figcaption></figure><div class="lb-data" data-src="images/20260429_140110_full.jpg" data-caption="Natural Rock Archway at Pismo Beach" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(13)"><img src="images/DSCN5241 (Medium)_thumb.jpg" alt="DSCN5241 (Medium).JPG" loading="lazy"><figcaption>Sunny Beach with Coastal Cliff and Tidepoolers</figcaption></figure><div class="lb-data" data-src="images/DSCN5241 (Medium)_full.jpg" data-caption="Sunny Beach with Coastal Cliff and Tidepoolers" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(14)"><img src="images/oystercatcher (Medium)_thumb.jpg" alt="oystercatcher (Medium).JPG" loading="lazy"><figcaption>Black Oystercatcher Foraging on Coastal Rocks</figcaption></figure><div class="lb-data" data-src="images/oystercatcher (Medium)_full.jpg" data-caption="Black Oystercatcher Foraging on Coastal Rocks" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(15)"><img src="images/20260429_144022_thumb.jpg" alt="20260429_144022.jpg" loading="lazy"><figcaption>Rocky Shoreline at Dinosaur Caves Park</figcaption></figure><div class="lb-data" data-src="images/20260429_144022_full.jpg" data-caption="Rocky Shoreline at Dinosaur Caves Park" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(16)"><img src="images/DSCN5256 (Medium)_thumb.jpg" alt="DSCN5256 (Medium).JPG" loading="lazy"><figcaption>Person Wading in Rocky Coastal Tide Pool</figcaption></figure><div class="lb-data" data-src="images/DSCN5256 (Medium)_full.jpg" data-caption="Person Wading in Rocky Coastal Tide Pool" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(17)"><img src="images/PXL_20260429_214947787-EDIT (Medium)_thumb.jpg" alt="PXL_20260429_214947787-EDIT (Medium).jpg" loading="lazy"><figcaption>Tide Pool Exploration on a Sunny Day</figcaption></figure><div class="lb-data" data-src="images/PXL_20260429_214947787-EDIT (Medium)_full.jpg" data-caption="Tide Pool Exploration on a Sunny Day" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(18)"><img src="images/PXL_20260430_014645125 (Medium)_thumb.jpg" alt="PXL_20260430_014645125 (Medium).jpg" loading="lazy"><figcaption>Pismo Beach Coastal Scene at Sunset</figcaption></figure><div class="lb-data" data-src="images/PXL_20260430_014645125 (Medium)_full.jpg" data-caption="Pismo Beach Coastal Scene at Sunset" style="display:none"></div></div>
+  </div>
+  <aside class="photos-col">
+    <div class="polaroid-cluster">
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260429_064242_thumb.jpg" alt="Two Wild Rabbits Near a Fence in Pismo B"><p class=polaroid-cap>Two Wild Rabbits Near a Fence in Pismo B</p></div><div class="lb-data" data-src="images/20260429_064242_full.jpg" data-caption="Two Wild Rabbits Near a Fence in Pismo B" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/DSCN5229 (Medium)_thumb.jpg" alt="Birds on Coastal Rock Formation"><p class=polaroid-cap>Birds on Coastal Rock Formation</p></div><div class="lb-data" data-src="images/DSCN5229 (Medium)_full.jpg" data-caption="Birds on Coastal Rock Formation" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/PXL_20260429_173822567-EDIT (Medium)_thumb.jpg" alt="Rocky Coastal Cove with Clear Water"><p class=polaroid-cap>Rocky Coastal Cove with Clear Water</p></div><div class="lb-data" data-src="images/PXL_20260429_173822567-EDIT (Medium)_full.jpg" data-caption="Rocky Coastal Cove with Clear Water" style="display:none"></div>
+    </div>
+  </aside>
+</div>
+
+<nav class="chapter-nav-bar">
+  <a href="day-2026-04-28.html" class="chapter-nav-link prev"><div class="nav-arrow">&#8592;</div><div><p class="nav-meta-label">Previous Chapter</p><p class="nav-chapter-title">Apr 28</p></div></a>
+  <a href="day-2026-04-30.html" class="chapter-nav-link next"><div><p class="nav-meta-label">Next Chapter</p><p class="nav-chapter-title">Apr 30</p></div><div class="nav-arrow">&#8594;</div></a>
+</nav>
+
+<footer class="mem-footer">
+  <a class="header-back" href="journal.html">&#8592; Back to California Central Coast - 2026</a>
+  <span>Wednesday, April 29, 2026</span>
+</footer>
+
+
+<div id="lb" role="dialog" aria-modal="true">
+  <span id="lb-close" onclick="closeLightbox()" title="Close">&times;</span>
+  <button id="lb-prev" onclick="lbNav(-1)" aria-label="Previous">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <p id="lb-caption"></p>
+  <button id="lb-next" onclick="lbNav(1)" aria-label="Next">&#8594;</button>
+</div>
+<script>
+var lbData=(function(){
+  var nodes=document.querySelectorAll('.lb-data');
+  return Array.from(nodes).map(function(n){return{src:n.dataset.src,caption:n.dataset.caption}});
+})();
+var lbIdx=0;
+function openLightbox(i){lbIdx=i;_lbShow();}
+function closeLightbox(){document.getElementById('lb').classList.remove('open');}
+function lbNav(d){lbIdx=(lbIdx+d+lbData.length)%lbData.length;_lbShow();}
+function _lbShow(){
+  var d=lbData[lbIdx];
+  document.getElementById('lb-img').src=d.src;
+  document.getElementById('lb-caption').textContent=d.caption;
+  document.getElementById('lb').classList.add('open');
+}
+document.addEventListener('keydown',function(e){
+  var lb=document.getElementById('lb');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
+});
+document.getElementById('lb').addEventListener('click',function(e){
+  if(e.target===this)closeLightbox();
+});
+</script>
+</body>
+</html>

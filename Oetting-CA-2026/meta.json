@@ -12,5 +12,6 @@
   "date_range": "March 15 – March 20, 2026",
   "start_date": "2026-03-15",
   "days": 5,
-  "cover": "collage_2026-03-15.jpg"
+  "cover": "collage_2026-03-15.jpg",
+  "source_dir": "/Users/spadnos/dev/agents/src-data/Oetting-CA-2026"
 }

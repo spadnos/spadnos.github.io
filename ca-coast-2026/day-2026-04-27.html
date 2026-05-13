@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,26 +234,28 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 02 · April 27, 2026</span>
       <h1 class="mem-title">Monday, April 27, 2026</h1>
+      
     </div>
   </div>
 </section>
 
 <section class="meta-bar">
-  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">8834+VQ, San Luis Obispo, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">April 27, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
+  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">San Luis Obispo, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">April 27, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
 </section>
 
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Morning light on Live Oak Road before heading south along the coast to San Luis Obispo, where we spent the afternoon exploring the area near Cal Poly.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Paso_Robles,_California" target="_blank" rel="noopener">Paso Robles</a> — sits atop a geothermal aquifer that feeds natural hot springs, which drew settlers long before the wine industry took hold</li><li><a href="https://en.wikipedia.org/wiki/San_Luis_Obispo,_California" target="_blank" rel="noopener">San Luis Obispo</a> — home to the Madonna Inn, and famously ranked among the happiest cities in the U.S. by multiple well-being indices</li><li><a href="https://en.wikipedia.org/wiki/California_Polytechnic_State_University,_San_Luis_Obispo" target="_blank" rel="noopener">California Polytechnic State University, San Luis Obispo</a> — its "learn by doing" motto is backed by a working on-campus farm and ranch spanning over 9,800 acres</li></ul>
+      <p>Morning light hit the Paso Robles vineyard rows at 8 AM before we drove south to hike the hills above San Luis Obispo, where the trail opened onto broad valley views and a grazing pond below — capped by a close encounter with a garter snake crossing the path.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Paso_Robles_wine_country" target="_blank" rel="noopener">Paso Robles Wine Country</a> — one of California's fastest-warming wine appellations, where diurnal temperature swings exceeding 50°F allow unusually bold Rhône-style reds</li><li><a href="https://en.wikipedia.org/wiki/San_Luis_Obispo,_California" target="_blank" rel="noopener">San Luis Obispo</a> — consistently ranked among the happiest small cities in the U.S., with hiking trails ringing the city's volcanic morros</li><li><a href="https://en.wikipedia.org/wiki/Common_garter_snake" target="_blank" rel="noopener">Common Garter Snake</a> — one of the few North American snakes capable of tolerating mild toxins from Pacific newts, sequestering them as a defense</li></ul>
     </div>
-    <div class="pull-quote"><blockquote>"Morning light on Live Oak Road before heading south along the coast to San Luis Obispo, where we spent the afternoon exploring the area near Cal Poly."</blockquote></div>
+    
+    
     <div class="featured-collage"><img src="collage_2026-04-27.jpg" alt="Day collage" loading="lazy"></div>
     
   </div>
   <aside class="photos-col">
     <div class="polaroid-cluster">
-      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260427_081302_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260427_081302_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260427_131349_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260427_131349_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260427_140413_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260427_140413_full.jpg" data-caption="" style="display:none"></div>
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260427_081302_thumb.jpg" alt="Green Vineyard Rows with Distant Blue Ho"><p class=polaroid-cap>Green Vineyard Rows with Distant Blue Ho</p></div><div class="lb-data" data-src="images/20260427_081302_full.jpg" data-caption="Green Vineyard Rows with Distant Blue Ho" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260427_131349_thumb.jpg" alt="Women Hiking on a Scenic Hillside Trail "><p class=polaroid-cap>Women Hiking on a Scenic Hillside Trail </p></div><div class="lb-data" data-src="images/20260427_131349_full.jpg" data-caption="Women Hiking on a Scenic Hillside Trail " style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260427_140413_thumb.jpg" alt="Patterned Snake on Dry Earth in Dappled "><p class=polaroid-cap>Patterned Snake on Dry Earth in Dappled </p></div><div class="lb-data" data-src="images/20260427_140413_full.jpg" data-caption="Patterned Snake on Dry Earth in Dappled " style="display:none"></div>
     </div>
   </aside>
 </div>

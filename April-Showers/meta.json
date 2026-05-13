@@ -8,5 +8,6 @@
   "date_range": "April 12 – April 18, 2026",
   "start_date": "2026-04-12",
   "days": 3,
-  "cover": "collage_2026-04-12.jpg"
+  "cover": "collage_2026-04-12.jpg",
+  "source_dir": "/Users/spadnos/dev/agents/src-data/April-Showers"
 }

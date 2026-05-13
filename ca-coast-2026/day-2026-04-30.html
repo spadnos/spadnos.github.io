@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,27 +234,29 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 05 · April 30, 2026</span>
       <h1 class="mem-title">Thursday, April 30, 2026</h1>
+      
     </div>
   </div>
 </section>
 
 <section class="meta-bar">
-  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">C3WJ+XC, Cayucos, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">April 30, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
+  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">C3WJ+XC</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">April 30, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
 </section>
 
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Cool coastal air and a quiet pier marked the morning before a stop at one of California's smallest towns in the afternoon.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Cayucos,_California" target="_blank" rel="noopener">Cayucos, California</a> — a small Central Coast beach town whose 1875 pier is one of the oldest surviving wooden piers in California, originally built by Captain James Cass to offload cattle and dairy goods</li><li><a href="https://en.wikipedia.org/wiki/Harmony,_California" target="_blank" rel="noopener">Harmony, California</a> — an unincorporated community with a permanent population of roughly 18, the entire 1875 Old Creamery complex was sold as a single property in 1994 and now houses artists' studios and a winery</li></ul>
+      <p>Bright sun glinted off a rusted hull just offshore as we walked the Cayucos bluffs, then drove south to poke around the famously tiny village of Harmony before heading home.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Cayucos,_California" target="_blank" rel="noopener">Cayucos, California</a> — A small Central Coast town whose pier dates to 1875; the partially submerged shipwreck visible just offshore is a local landmark that has slowly corroded into the rocky shallows over decades.</li><li><a href="https://en.wikipedia.org/wiki/Harmony,_California" target="_blank" rel="noopener">Harmony, California</a> — An unincorporated community with a permanent population of 18, built around a former dairy cooperative creamery; it now operates as an artisan village offering glassblowing, pottery, and wine tasting.</li></ul>
     </div>
-    <div class="pull-quote"><blockquote>"Cool coastal air and a quiet pier marked the morning before a stop at one of California's smallest towns in the afternoon."</blockquote></div>
+    
+    <div class="pull-quote"><blockquote>"Bright sun glinted off a rusted hull just offshore as we walked the Cayucos bluffs, then drove south to poke around the famously tiny village of Harmony before heading home."</blockquote></div>
     <div class="featured-collage"><img src="collage_2026-04-30.jpg" alt="Day collage" loading="lazy"></div>
-    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260430_140612_thumb.jpg" alt="20260430_140612.jpg" loading="lazy"><figcaption>2:06 PM</figcaption></figure><div class="lb-data" data-src="images/20260430_140612_full.jpg" data-caption="" style="display:none"></div>
-<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260430_145224_thumb.jpg" alt="20260430_145224.jpg" loading="lazy"><figcaption>2:52 PM</figcaption></figure><div class="lb-data" data-src="images/20260430_145224_full.jpg" data-caption="" style="display:none"></div></div>
+    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260430_140612_thumb.jpg" alt="20260430_140612.jpg" loading="lazy"><figcaption>Harmony, CA Post Office and Creamery Association</figcaption></figure><div class="lb-data" data-src="images/20260430_140612_full.jpg" data-caption="Harmony, CA Post Office and Creamery Association" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260430_145224_thumb.jpg" alt="20260430_145224.jpg" loading="lazy"><figcaption>Historic Harmony Sign with Vintage Truck and Tractor</figcaption></figure><div class="lb-data" data-src="images/20260430_145224_full.jpg" data-caption="Historic Harmony Sign with Vintage Truck and Tractor" style="display:none"></div></div>
   </div>
   <aside class="photos-col">
     <div class="polaroid-cluster">
-      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260430_105058_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260430_105058_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260430_111448_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260430_111448_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260430_140530_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260430_140530_full.jpg" data-caption="" style="display:none"></div>
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260430_105058_thumb.jpg" alt="Rusty Boat Wreck Off Coastal Cliffs"><p class=polaroid-cap>Rusty Boat Wreck Off Coastal Cliffs</p></div><div class="lb-data" data-src="images/20260430_105058_full.jpg" data-caption="Rusty Boat Wreck Off Coastal Cliffs" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260430_111448_thumb.jpg" alt="Rusted Shipwreck in Sunny Coastal Waters"><p class=polaroid-cap>Rusted Shipwreck in Sunny Coastal Waters</p></div><div class="lb-data" data-src="images/20260430_111448_full.jpg" data-caption="Rusted Shipwreck in Sunny Coastal Waters" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260430_140530_thumb.jpg" alt="Couple Posing with Painted Cow Statue in"><p class=polaroid-cap>Couple Posing with Painted Cow Statue in</p></div><div class="lb-data" data-src="images/20260430_140530_full.jpg" data-caption="Couple Posing with Painted Cow Statue in" style="display:none"></div>
     </div>
   </aside>
 </div>

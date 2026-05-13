@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,28 +234,30 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 06 · May 1, 2026</span>
       <h1 class="mem-title">Friday, May 1, 2026</h1>
+      
     </div>
   </div>
 </section>
 
 <section class="meta-bar">
-  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">Casa Del Sol, San Simeon, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">May 1, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
+  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">Casa Del Sol</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">May 1, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
 </section>
 
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Morning fog still clung to the hillside as we moved between the guest cottages and main grounds of Hearst Castle, then dropped down to the coast to watch elephant seals on the beach below.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Hearst_Castle" target="_blank" rel="noopener">Casa del Sol</a> — one of three Spanish Colonial Revival guest houses on the Hearst Castle estate, designed by Julia Morgan and named for its sun-facing position on the hill</li><li><a href="https://en.wikipedia.org/wiki/Hearst_Castle" target="_blank" rel="noopener">Casa del Monte</a> — the smallest of the three guest cottages, featuring hand-painted antique tiles sourced from Spain and Portugal</li><li><a href="https://en.wikipedia.org/wiki/Piedras_Blancas_elephant_seal_rookery" target="_blank" rel="noopener">Piedras Blancas Elephant Seal Rookery</a> — a year-round colony where males can weigh up to 5,000 lbs; the colony unexpectedly established itself here in 1990 after decades of absence from California</li></ul>
+      <p>Brilliant morning light hit the Neptune Pool's mosaic tilework as we arrived at Hearst Castle, followed by a slow afternoon walk among elephant seals on the beach below.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Neptune_Pool,_Hearst_Castle" target="_blank" rel="noopener">Hearst Castle – Neptune Pool</a> — filled and drained multiple times due to California drought restrictions; its 345,000-gallon capacity made it one of the largest private pools in the US when built</li><li><a href="https://en.wikipedia.org/wiki/Hearst_Castle" target="_blank" rel="noopener">La Casa Grande</a> — William Randolph Hearst never considered it finished, continuously renovating until his departure in 1947</li><li><a href="https://en.wikipedia.org/wiki/Piedras_Blancas_elephant_seal_rookery" target="_blank" rel="noopener">Piedras Blancas Elephant Seal Rookery</a> — colony established here only in 1990, when seals unexpectedly hauled out; now one of the most accessible viewing sites on the Pacific Coast</li></ul>
     </div>
-    <div class="pull-quote"><blockquote>"Morning fog still clung to the hillside as we moved between the guest cottages and main grounds of Hearst Castle, then dropped down to the coast to watch elephant seals on the beach below."</blockquote></div>
+    
+    <div class="pull-quote"><blockquote>"Brilliant morning light hit the Neptune Pool's mosaic tilework as we arrived at Hearst Castle, followed by a slow afternoon walk among elephant seals on the beach below."</blockquote></div>
     <div class="featured-collage"><img src="collage_2026-05-01.jpg" alt="Day collage" loading="lazy"></div>
-    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260501_122744_thumb.jpg" alt="20260501_122744.jpg" loading="lazy"><figcaption>12:27 PM</figcaption></figure><div class="lb-data" data-src="images/20260501_122744_full.jpg" data-caption="" style="display:none"></div>
-<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260501_122912_thumb.jpg" alt="20260501_122912.jpg" loading="lazy"><figcaption>12:29 PM</figcaption></figure><div class="lb-data" data-src="images/20260501_122912_full.jpg" data-caption="" style="display:none"></div>
-<figure class="photo-item" onclick="openLightbox(5)"><img src="images/20260501_123441_thumb.jpg" alt="20260501_123441.jpg" loading="lazy"><figcaption>12:34 PM</figcaption></figure><div class="lb-data" data-src="images/20260501_123441_full.jpg" data-caption="" style="display:none"></div></div>
+    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260501_122744_thumb.jpg" alt="20260501_122744.jpg" loading="lazy"><figcaption>Numerous Elephant Seals Resting on a Coastal Beach</figcaption></figure><div class="lb-data" data-src="images/20260501_122744_full.jpg" data-caption="Numerous Elephant Seals Resting on a Coastal Beach" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260501_122912_thumb.jpg" alt="20260501_122912.jpg" loading="lazy"><figcaption>Elephant Seal Napping by Yellow Coastal Flowers</figcaption></figure><div class="lb-data" data-src="images/20260501_122912_full.jpg" data-caption="Elephant Seal Napping by Yellow Coastal Flowers" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(5)"><img src="images/20260501_123441_thumb.jpg" alt="20260501_123441.jpg" loading="lazy"><figcaption>Pelicans Flying in Formation Over the Ocean</figcaption></figure><div class="lb-data" data-src="images/20260501_123441_full.jpg" data-caption="Pelicans Flying in Formation Over the Ocean" style="display:none"></div></div>
   </div>
   <aside class="photos-col">
     <div class="polaroid-cluster">
-      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260501_102910_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260501_102910_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260501_103431_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260501_103431_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260501_104717_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260501_104717_full.jpg" data-caption="" style="display:none"></div>
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260501_102910_thumb.jpg" alt="Neptune Pool at Hearst Castle"><p class=polaroid-cap>Neptune Pool at Hearst Castle</p></div><div class="lb-data" data-src="images/20260501_102910_full.jpg" data-caption="Neptune Pool at Hearst Castle" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260501_103431_thumb.jpg" alt="Neptune Pool at Hearst Castle"><p class=polaroid-cap>Neptune Pool at Hearst Castle</p></div><div class="lb-data" data-src="images/20260501_103431_full.jpg" data-caption="Neptune Pool at Hearst Castle" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260501_104717_thumb.jpg" alt="Hearst Castle La Casa Grande with Front "><p class=polaroid-cap>Hearst Castle La Casa Grande with Front </p></div><div class="lb-data" data-src="images/20260501_104717_full.jpg" data-caption="Hearst Castle La Casa Grande with Front " style="display:none"></div>
     </div>
   </aside>
 </div>

@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,6 +234,7 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 04 · April 29, 2026</span>
       <h1 class="mem-title">Wednesday, April 29, 2026</h1>
+      
     </div>
   </div>
 </section>
@@ -219,16 +246,17 @@ a{color:inherit;text-decoration:none;}
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Early morning light at Pismo Beach gave way to a midday stop near Avila Beach before returning to the Pismo shore for the afternoon.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Pismo_Beach" target="_blank" rel="noopener">Pismo Beach</a> — once famous for its Pismo clam harvest, which collapsed so severely that commercial clamming was banned; the beach also sits atop a monarch butterfly overwintering grove visited by tens of thousands annually.</li><li><a href="https://en.wikipedia.org/wiki/Avila_Beach,_California" target="_blank" rel="noopener">Avila Beach</a> — the town was largely demolished and rebuilt in 1998–2001 after an underground Unocal oil spill contaminated the entire downtown area.</li><li><a href="https://en.wikipedia.org/wiki/Dinosaur_Caves_Park" target="_blank" rel="noopener">Dinosaur Caves Park</a> — named for a now-demolished roadside attraction featuring a large concrete dinosaur that once marked a tourist cave complex beneath the bluff.</li></ul>
+      <p>Early-morning rabbits at Pismo Beach gave way to a sun-drenched bike ride out along Avila Beach's pier, then an afternoon exploring sea arches and tide pools back up the coast.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Avila_Beach,_California" target="_blank" rel="noopener">Avila Beach Pier</a> — a working fishing pier where commercial vessels still unload catch, one of the few remaining on the Central Coast sheltered inside a natural bay</li><li><a href="https://en.wikipedia.org/wiki/Pismo_Beach,_California" target="_blank" rel="noopener">Pismo Beach</a> — once famous for Pismo clams so abundant they were harvested by the truckload; overharvesting and sea otters have made large clams a rarity today</li><li><a href="https://en.wikipedia.org/wiki/Dinosaur_Caves_Park" target="_blank" rel="noopener">Dinosaur Caves Park</a> — named for a now-demolished roadside attraction featuring a life-sized concrete dinosaur that stood above the sea caves below the bluff</li></ul>
     </div>
-    <div class="pull-quote"><blockquote>"Early morning light at Pismo Beach gave way to a midday stop near Avila Beach before returning to the Pismo shore for the afternoon."</blockquote></div>
+    
+    <div class="pull-quote"><blockquote>"Early-morning rabbits at Pismo Beach gave way to a sun-drenched bike ride out along Avila Beach's pier, then an afternoon exploring sea arches and tide pools back up the coast."</blockquote></div>
     <div class="featured-collage"><img src="collage_2026-04-29.jpg" alt="Day collage" loading="lazy"></div>
-    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260429_140110_thumb.jpg" alt="20260429_140110.jpg" loading="lazy"><figcaption>2:01 PM</figcaption></figure><div class="lb-data" data-src="images/20260429_140110_full.jpg" data-caption="" style="display:none"></div>
-<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260429_144022_thumb.jpg" alt="20260429_144022.jpg" loading="lazy"><figcaption>2:40 PM</figcaption></figure><div class="lb-data" data-src="images/20260429_144022_full.jpg" data-caption="" style="display:none"></div></div>
+    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260429_140110_thumb.jpg" alt="20260429_140110.jpg" loading="lazy"><figcaption>Natural Rock Arch over Coastal Waters</figcaption></figure><div class="lb-data" data-src="images/20260429_140110_full.jpg" data-caption="Natural Rock Arch over Coastal Waters" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260429_144022_thumb.jpg" alt="20260429_144022.jpg" loading="lazy"><figcaption>Pacific Coast Rocky Beach with Tide Pools and Cliffs</figcaption></figure><div class="lb-data" data-src="images/20260429_144022_full.jpg" data-caption="Pacific Coast Rocky Beach with Tide Pools and Cliffs" style="display:none"></div></div>
   </div>
   <aside class="photos-col">
     <div class="polaroid-cluster">
-      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260429_064242_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260429_064242_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260429_112829_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260429_112829_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260429_112852_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260429_112852_full.jpg" data-caption="" style="display:none"></div>
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260429_064242_thumb.jpg" alt="Two Rabbits by Black Fence on Asphalt Pa"><p class=polaroid-cap>Two Rabbits by Black Fence on Asphalt Pa</p></div><div class="lb-data" data-src="images/20260429_064242_full.jpg" data-caption="Two Rabbits by Black Fence on Asphalt Pa" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260429_112829_thumb.jpg" alt="Fishing Vessels Anchored Off Rocky Coast"><p class=polaroid-cap>Fishing Vessels Anchored Off Rocky Coast</p></div><div class="lb-data" data-src="images/20260429_112829_full.jpg" data-caption="Fishing Vessels Anchored Off Rocky Coast" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260429_112852_thumb.jpg" alt="Smiling Woman on Specialized E-bike on P"><p class=polaroid-cap>Smiling Woman on Specialized E-bike on P</p></div><div class="lb-data" data-src="images/20260429_112852_full.jpg" data-caption="Smiling Woman on Specialized E-bike on P" style="display:none"></div>
     </div>
   </aside>
 </div>

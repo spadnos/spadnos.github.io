@@ -12,5 +12,6 @@
   "date_range": "April 26 – May 3, 2026",
   "start_date": "2026-04-26",
   "days": 8,
-  "cover": "collage_2026-04-26.jpg"
+  "cover": "collage_2026-04-26.jpg",
+  "source_dir": "/Users/spadnos/dev/agents/src-data/ca-coast-2026"
 }

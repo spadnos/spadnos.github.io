@@ -1,0 +1,17 @@
+{
+  "title": "California Central Coast - 2026",
+  "description": "A week mostly in and around San Luis Obispo County, including Hearst Castle, Paso Robles, and Pismo Beach.",
+  "participants": [
+    "Hazel",
+    "Greg",
+    "Rachel",
+    "Sunil",
+    "Colleen",
+    "Steve"
+  ],
+  "date_range": "April 26 – May 3, 2026",
+  "start_date": "2026-04-26",
+  "days": 8,
+  "cover": "collage_2026-04-26.jpg",
+  "source_dir": "/Users/spadnos/dev/agents/src-data/ca-coast-2026-full"
+}

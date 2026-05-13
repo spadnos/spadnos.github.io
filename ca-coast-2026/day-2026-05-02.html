@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,26 +234,28 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 07 · May 2, 2026</span>
       <h1 class="mem-title">Saturday, May 2, 2026</h1>
+      
     </div>
   </div>
 </section>
 
 <section class="meta-bar">
-  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">4380 CA-46, Paso Robles, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">May 2, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
+  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">Paso Robles, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">May 2, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
 </section>
 
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Fog still clung to the shore at midday before we drove inland to wine country for the evening.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Moonstone_Beach,_Cambria" target="_blank" rel="noopener">Moonstone Beach</a> — a narrow boardwalk-backed strand named for the translucent moonstones historically found among its pebbles; sits at the western edge of Cambria where the Santa Lucia Range meets the Pacific</li><li><a href="https://en.wikipedia.org/wiki/Paso_Robles_AVA" target="_blank" rel="noopener">Paso Robles Wine Country</a> — one of California's most thermally extreme AVAs, with daily temperature swings of up to 50°F that stress vines into producing intensely concentrated fruit; CA-46 bisects the appellation east–west through its densest vineyard corridor</li></ul>
+      <p>Fog-free afternoon light made the carved stump faces along Moonstone Beach almost painterly before we drove inland to catch sunset over the hills east of Paso Robles.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Moonstone_Beach,_Cambria" target="_blank" rel="noopener">Moonstone Beach</a> — a boardwalk-lined strand in Cambria named for the translucent moonstones once found tumbling in the surf; the roadside folk-art tree stumps are an unofficial local tradition</li><li><a href="https://en.wikipedia.org/wiki/Sensorio" target="_blank" rel="noopener">Festival of Lights at Sensorio</a> — Bruce Munro's permanent field installation on a 15-acre wine-country property uses over 58,000 stem-mounted lights powered partly by on-site solar panels; the polyhedral sculptures are part of his rotating *Light* series</li></ul>
     </div>
-    <div class="pull-quote"><blockquote>"Fog still clung to the shore at midday before we drove inland to wine country for the evening."</blockquote></div>
+    
+    <div class="pull-quote"><blockquote>"Fog-free afternoon light made the carved stump faces along Moonstone Beach almost painterly before we drove inland to catch sunset over the hills east of Paso Robles."</blockquote></div>
     <div class="featured-collage"><img src="collage_2026-05-02.jpg" alt="Day collage" loading="lazy"></div>
-    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260502_210343_thumb.jpg" alt="20260502_210343.jpg" loading="lazy"><figcaption>9:03 PM</figcaption></figure><div class="lb-data" data-src="images/20260502_210343_full.jpg" data-caption="" style="display:none"></div></div>
+    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260502_210343_thumb.jpg" alt="20260502_210343.jpg" loading="lazy"><figcaption>Luminous Field Art Installation at Night</figcaption></figure><div class="lb-data" data-src="images/20260502_210343_full.jpg" data-caption="Luminous Field Art Installation at Night" style="display:none"></div></div>
   </div>
   <aside class="photos-col">
     <div class="polaroid-cluster">
-      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260502_131130_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260502_131130_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260502_193058_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260502_193058_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260502_204137_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260502_204137_full.jpg" data-caption="" style="display:none"></div>
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260502_131130_thumb.jpg" alt="Two Whimsical Tree Stump Faces in Greene"><p class=polaroid-cap>Two Whimsical Tree Stump Faces in Greene</p></div><div class="lb-data" data-src="images/20260502_131130_full.jpg" data-caption="Two Whimsical Tree Stump Faces in Greene" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260502_193058_thumb.jpg" alt="Rolling Hills Field of Lights at Sunset"><p class=polaroid-cap>Rolling Hills Field of Lights at Sunset</p></div><div class="lb-data" data-src="images/20260502_193058_full.jpg" data-caption="Rolling Hills Field of Lights at Sunset" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260502_204137_thumb.jpg" alt="Illuminated Geometric Sculpture with Pat"><p class=polaroid-cap>Illuminated Geometric Sculpture with Pat</p></div><div class="lb-data" data-src="images/20260502_204137_full.jpg" data-caption="Illuminated Geometric Sculpture with Pat" style="display:none"></div>
     </div>
   </aside>
 </div>

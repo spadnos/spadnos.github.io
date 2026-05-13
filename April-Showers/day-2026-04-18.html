@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,6 +234,7 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 03 · April 18, 2026</span>
       <h1 class="mem-title">Saturday, April 18, 2026</h1>
+      
     </div>
   </div>
 </section>
@@ -219,9 +246,10 @@ a{color:inherit;text-decoration:none;}
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Clear blue skies and firm spring snow greeted us as Colleen clicked in for a final day of laps on the expert terrain off Chair 6.</p>
+      <p>Colleen topped out on an expert run under a bluebird sky, finishing her season with laps off Chair 6 on a classic Sierra spring day.</p>
     </div>
-    <div class="pull-quote"><blockquote>"Clear blue skies and firm spring snow greeted us as Colleen clicked in for a final day of laps on the expert terrain off Chair 6."</blockquote></div>
+    <div class="traveler-notes"><p class="notes-label">Traveler's Notes</p><div class="note-item"><p class="note-text">Colleen wrapped up the season with some laps on Chair 6 (expert runs).</p></div></div>
+    <div class="pull-quote"><blockquote>"Colleen topped out on an expert run under a bluebird sky, finishing her season with laps off Chair 6 on a classic Sierra spring day."</blockquote></div>
     
     
   </div>

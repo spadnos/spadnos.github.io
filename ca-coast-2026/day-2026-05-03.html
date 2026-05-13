@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,26 +234,28 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 08 · May 3, 2026</span>
       <h1 class="mem-title">Sunday, May 3, 2026</h1>
+      
     </div>
   </div>
 </section>
 
 <section class="meta-bar">
-  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">53034 CA-1, Big Sur, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">May 3, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
+  <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Location</p><p class="meta-val">Big Sur, CA</p></div></div><div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Date</p><p class="meta-val">May 3, 2026</p></div></div><div class="meta-item"><div class="meta-icon">👥</div><div><p class="meta-label">Travelers</p><p class="meta-val">Rachel, Hazel, Greg, Sunil, Colleen, Steve</p></div></div>
 </section>
 
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Cool coastal fog clung to the cliffs as we pulled over along CA-1 in Big Sur on a Sunday afternoon, both shots captured within the same minute.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Big_Sur" target="_blank" rel="noopener">Big Sur, California</a> — a 90-mile stretch of coastline so rugged it wasn't fully connected by road until 1937; the region has no incorporated towns and remains one of the least developed coastlines in the contiguous U.S.</li><li><a href="https://en.wikipedia.org/wiki/California_State_Route_1" target="_blank" rel="noopener">California State Route 1</a> — the segment through Big Sur required decades of convict labor and Depression-era CCC work to carve into near-vertical Santa Lucia Range cliffs.</li></ul>
+      <p>Both shots taken at the overlook within minutes of each other, the turquoise cove sharp under a bright May sky.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/McWay_Falls" target="_blank" rel="noopener">McWay Falls</a> — one of very few waterfalls in California that drops directly onto a beach; the cove below is inaccessible to visitors, keeping the sand perpetually undisturbed.</li><li><a href="https://en.wikipedia.org/wiki/Julia_Pfeiffer_Burns_State_Park" target="_blank" rel="noopener">Julia Pfeiffer Burns State Park</a> — named after a Big Sur homesteader who lived in the area until the 1930s; the underwater reserve extending offshore was one of California's first protected marine zones.</li></ul>
     </div>
-    <div class="pull-quote"><blockquote>"Cool coastal fog clung to the cliffs as we pulled over along CA-1 in Big Sur on a Sunday afternoon, both shots captured within the same minute."</blockquote></div>
+    
+    <div class="pull-quote"><blockquote>"Both shots taken at the overlook within minutes of each other, the turquoise cove sharp under a bright May sky."</blockquote></div>
     <div class="featured-collage"><img src="collage_2026-05-03.jpg" alt="Day collage" loading="lazy"></div>
     
   </div>
   <aside class="photos-col">
     <div class="polaroid-cluster">
-      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260503_133938_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260503_133938_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260503_133953_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260503_133953_full.jpg" data-caption="" style="display:none"></div>
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260503_133938_thumb.jpg" alt="McWay Falls cascading onto Pacific beach"><p class=polaroid-cap>McWay Falls cascading onto Pacific beach</p></div><div class="lb-data" data-src="images/20260503_133938_full.jpg" data-caption="McWay Falls cascading onto Pacific beach" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260503_133953_thumb.jpg" alt="McWay Falls Waterfall to Pacific Ocean B"><p class=polaroid-cap>McWay Falls Waterfall to Pacific Ocean B</p></div><div class="lb-data" data-src="images/20260503_133953_full.jpg" data-caption="McWay Falls Waterfall to Pacific Ocean B" style="display:none"></div>
     </div>
   </aside>
 </div>

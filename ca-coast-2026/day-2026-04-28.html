@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -208,6 +234,7 @@ a{color:inherit;text-decoration:none;}
     <div>
       <span class="mem-day-badge">Day 03 · April 28, 2026</span>
       <h1 class="mem-title">Tuesday, April 28, 2026</h1>
+      
     </div>
   </div>
 </section>
@@ -219,17 +246,18 @@ a{color:inherit;text-decoration:none;}
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Morning light at Morro Bay State Park gave way to an afternoon walk along the coastal bluffs above Los Osos, the estuary glinting below under clear skies.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Morro_Bay_State_Park" target="_blank" rel="noopener">Morro Bay State Park</a> — home to one of the few remaining great blue heron rookeries in California, with nesting birds visible from the park's museum grounds</li><li><a href="https://en.wikipedia.org/wiki/Montana_de_Oro_State_Park" target="_blank" rel="noopener">Bluff Trail, Montana de Oro / Los Osos</a> — the trail edges Morro Bay Estuary, a nationally significant estuary supporting over 250 bird species and critical eelgrass habitat</li><li><a href="https://en.wikipedia.org/wiki/Baywood-Los_Osos,_California" target="_blank" rel="noopener">Baywood–Los Osos</a> — an unincorporated community bordering the estuary, notable for resisting incorporation efforts and maintaining a distinctly rural coastal character</li></ul>
+      <p>Morning light on the bay found us paddling a tandem kayak past floating seabirds and pink buoys, Morro Rock looming ahead; the afternoon shifted to clifftop hiking along the Los Osos coast, where the four of us paused on exposed sedimentary outcrops for photos and a rest.</p><p><strong>Highlights:</strong></p><ul><li><a href="https://en.wikipedia.org/wiki/Morro_Rock" target="_blank" rel="noopener">Morro Rock</a> — a 23-million-year-old volcanic plug that is one of nine "Nine Sisters" peaks along the San Luis Obispo coast; it doubles as a protected sanctuary for nesting peregrine falcons.</li><li><a href="https://en.wikipedia.org/wiki/Montana_de_Oro_State_Park" target="_blank" rel="noopener">Bluff Trail, Montana de Oro State Park</a> — the stratified cliffs here expose ancient marine terrace deposits, and the park's name ("mountain of gold") refers to its spring wildflower blooms.</li></ul>
     </div>
-    <div class="pull-quote"><blockquote>"Morning light at Morro Bay State Park gave way to an afternoon walk along the coastal bluffs above Los Osos, the estuary glinting below under clear skies."</blockquote></div>
+    
+    
     <div class="featured-collage"><img src="collage_2026-04-28.jpg" alt="Day collage" loading="lazy"></div>
-    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260428_125757_thumb.jpg" alt="20260428_125757.jpg" loading="lazy"><figcaption>12:57 PM</figcaption></figure><div class="lb-data" data-src="images/20260428_125757_full.jpg" data-caption="" style="display:none"></div>
-<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260428_132017_thumb.jpg" alt="20260428_132017.jpg" loading="lazy"><figcaption>1:20 PM</figcaption></figure><div class="lb-data" data-src="images/20260428_132017_full.jpg" data-caption="" style="display:none"></div>
-<figure class="photo-item" onclick="openLightbox(5)"><img src="images/20260428_132042_thumb.jpg" alt="20260428_132042.jpg" loading="lazy"><figcaption>1:20 PM</figcaption></figure><div class="lb-data" data-src="images/20260428_132042_full.jpg" data-caption="" style="display:none"></div></div>
+    <div class="photo-grid"><figure class="photo-item" onclick="openLightbox(3)"><img src="images/20260428_125757_thumb.jpg" alt="20260428_125757.jpg" loading="lazy"><figcaption>Layered Coastal Rock Formations by a Blue Sea</figcaption></figure><div class="lb-data" data-src="images/20260428_125757_full.jpg" data-caption="Layered Coastal Rock Formations by a Blue Sea" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(4)"><img src="images/20260428_132017_thumb.jpg" alt="20260428_132017.jpg" loading="lazy"><figcaption>Outdoor group resting by layered rock formations</figcaption></figure><div class="lb-data" data-src="images/20260428_132017_full.jpg" data-caption="Outdoor group resting by layered rock formations" style="display:none"></div>
+<figure class="photo-item" onclick="openLightbox(5)"><img src="images/20260428_132042_thumb.jpg" alt="20260428_132042.jpg" loading="lazy"><figcaption>Outdoor Group Selfie by Layered Sedimentary Rock Cliff</figcaption></figure><div class="lb-data" data-src="images/20260428_132042_full.jpg" data-caption="Outdoor Group Selfie by Layered Sedimentary Rock Cliff" style="display:none"></div></div>
   </div>
   <aside class="photos-col">
     <div class="polaroid-cluster">
-      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260428_102130_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260428_102130_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260428_102402_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260428_102402_full.jpg" data-caption="" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260428_122150_thumb.jpg" alt=""></div><div class="lb-data" data-src="images/20260428_122150_full.jpg" data-caption="" style="display:none"></div>
+      <div class="polaroid" style="top:0;left:0;width:200px;height:220px;transform:rotate(-4deg);" onclick="openLightbox(0)"><img src="images/20260428_102130_thumb.jpg" alt="Kayaking on Morro Bay with Iconic Morro "><p class=polaroid-cap>Kayaking on Morro Bay with Iconic Morro </p></div><div class="lb-data" data-src="images/20260428_102130_full.jpg" data-caption="Kayaking on Morro Bay with Iconic Morro " style="display:none"></div><div class="polaroid" style="top:120px;right:0;width:190px;height:210px;transform:rotate(2deg);" onclick="openLightbox(1)"><img src="images/20260428_102402_thumb.jpg" alt="Morro Rock and Water Birds on Morro Bay"><p class=polaroid-cap>Morro Rock and Water Birds on Morro Bay</p></div><div class="lb-data" data-src="images/20260428_102402_full.jpg" data-caption="Morro Rock and Water Birds on Morro Bay" style="display:none"></div><div class="polaroid" style="bottom:0;left:40px;width:185px;height:205px;transform:rotate(-1.5deg);" onclick="openLightbox(2)"><img src="images/20260428_122150_thumb.jpg" alt="Pacific Coastal Inlet with Layered Rocks"><p class=polaroid-cap>Pacific Coastal Inlet with Layered Rocks</p></div><div class="lb-data" data-src="images/20260428_122150_full.jpg" data-caption="Pacific Coastal Inlet with Layered Rocks" style="display:none"></div>
     </div>
   </aside>
 </div>

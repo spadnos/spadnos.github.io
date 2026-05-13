@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunday, April 12, 2026 · April Showers, Kirkwood-style</title>
+<title>A Blustery Day, Pooh-bear · April Showers, Kirkwood-style</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -186,6 +186,32 @@ a{color:inherit;text-decoration:none;}
 .nav-meta-label{font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);}
 .nav-chapter-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:500;color:var(--text);}
 .chapter-nav-link.next{text-align:right;flex-direction:row-reverse;}
+/* Day description in hero */
+.mem-day-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9375rem;color:rgba(255,255,255,.8);
+  margin-top:.5rem;line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+  max-width:36ch;
+}
+/* Traveler notes */
+.traveler-notes{
+  margin:1.25rem 0;
+  border-top:1px solid var(--border-dim);
+  padding-top:1rem;
+}
+.notes-label{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--subtle);margin-bottom:.625rem;
+}
+.note-item{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.note-item:last-child{border-bottom:none;}
+.note-text{font-size:.9375rem;color:var(--muted);line-height:1.55;}
+.note-author{font-size:.8rem;font-weight:500;color:var(--subtle);margin-top:.2rem;}
 /* Footer */
 .mem-footer{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
@@ -203,11 +229,12 @@ a{color:inherit;text-decoration:none;}
 </header>
 
 <section class="mem-hero">
-  <img src='images/20260412_092010_full.jpg' alt="Sunday, April 12, 2026" loading="eager">
+  <img src='images/20260412_092010_full.jpg' alt="A Blustery Day, Pooh-bear" loading="eager">
   <div class="mem-hero-overlay">
     <div>
       <span class="mem-day-badge">Day 01 · April 12, 2026</span>
-      <h1 class="mem-title">Sunday, April 12, 2026</h1>
+      <h1 class="mem-title">A Blustery Day, Pooh-bear</h1>
+      
     </div>
   </div>
 </section>
@@ -219,9 +246,10 @@ a{color:inherit;text-decoration:none;}
 <div class="content-grid">
   <div class="narrative-col">
     <div class="journal-body">
-      <p>Fresh powder blanketed the runs all morning as Colleen skied untracked snow through an active April storm, visibility dropping further by early afternoon.</p>
+      <p>Fresh powder in April and near-whiteout conditions made for a wild, rewarding day on the mountain; Colleen skied untracked snow while snowfall reduced visibility to the treeline by early afternoon.</p>
     </div>
-    <div class="pull-quote"><blockquote>"Fresh powder blanketed the runs all morning as Colleen skied untracked snow through an active April storm, visibility dropping further by early afternoon."</blockquote></div>
+    <div class="traveler-notes"><p class="notes-label">Traveler's Notes</p><div class="note-item"><p class="note-text">Colleen got to enjoy a powder day in April, which is a rare treat.</p></div></div>
+    <div class="pull-quote"><blockquote>"Fresh powder in April and near-whiteout conditions made for a wild, rewarding day on the mountain; Colleen skied untracked snow while snowfall reduced visibility to the treeline by early afternoon."</blockquote></div>
     <div class="featured-collage"><img src="collage_2026-04-12.jpg" alt="Day collage" loading="lazy"></div>
     
   </div>
